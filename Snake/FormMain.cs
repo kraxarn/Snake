@@ -5,6 +5,8 @@ namespace Snake
 {
 	public partial class FormMain : Form
 	{
+		public Keys Keys { get; private set; }
+
 		public FormMain()
 		{
 			Text   = "Snake";
@@ -25,6 +27,12 @@ namespace Snake
 
 			// Default WinForm stuff
 			//InitializeComponent();
+		}
+
+		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+		{
+			Keys = keyData;
+			return base.ProcessCmdKey(ref msg, keyData);
 		}
 	}
 }

@@ -48,6 +48,7 @@
     <Compile Include="Drawable\Tile\Food\FoodExtra.cs" />
     <Compile Include="Drawable\Tile\Food\FoodSpeed.cs" />
     <Compile Include="Drawable\Tile\Food\FoodStandard.cs" />
+    <Compile Include="Drawable\Tile\ICollidable.cs" />
     <Compile Include="Drawable\Tile\Player.cs" />
     <Compile Include="Drawable\Tile\Wall.cs" />
     <Compile Include="Engine.cs" />

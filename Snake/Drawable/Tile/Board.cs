@@ -40,7 +40,9 @@ namespace Snake
 
 		public void SwapTiles(Vector2 pos1, Vector2 pos2)
 		{
-
+			var temp = tiles[pos1.X, pos1.Y];
+			tiles[pos1.X, pos1.Y] = tiles[pos2.X, pos2.Y];
+			tiles[pos2.X, pos2.Y] = temp;
 		}
 
 		private Color GetRandomBackground() => Color.FromArgb(rng.Next(67, 102), rng.Next(160, 187), rng.Next(71, 106));

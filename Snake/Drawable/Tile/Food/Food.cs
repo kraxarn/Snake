@@ -2,7 +2,7 @@
 
 namespace Snake
 {
-	public interface Food : ITile
+	public abstract class Food : Tile
 	{
 		// yum yum
 

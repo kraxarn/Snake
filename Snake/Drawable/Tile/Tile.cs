@@ -2,7 +2,7 @@
 
 namespace Snake
 {
-	public class Tile : IDrawable
+	public class Tile : IDrawable, ICollidable
 	{
 		private Vector2 position;
 		private readonly SolidBrush drawer;
@@ -27,5 +27,10 @@ namespace Snake
 		{
 			g.FillRectangle(drawer, shape);
 		}
-	}
+
+        public void Collide(Player player)
+        {
+            
+        }
+    }
 }

@@ -49,7 +49,7 @@
     <Compile Include="Drawable\Tile\Food\FoodExtra.cs" />
     <Compile Include="Drawable\Tile\Food\FoodSpeed.cs" />
     <Compile Include="Drawable\Tile\Food\FoodStandard.cs" />
-    <Compile Include="Drawable\Tile\ICollidable.cs" />
+    <Compile Include="Drawable\Interface\ICollidable.cs" />
     <Compile Include="Drawable\Tile\Keybinding.cs" />
     <Compile Include="Drawable\Tile\Player.cs" />
     <Compile Include="Drawable\Tile\Wall.cs" />
@@ -61,7 +61,7 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Drawable\IDrawable.cs" />
+    <Compile Include="Drawable\Interface\IDrawable.cs" />
     <Compile Include="FormPlayers.cs">
       <SubType>Form</SubType>
     </Compile>

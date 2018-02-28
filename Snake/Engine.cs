@@ -12,7 +12,8 @@ namespace Snake
 		private readonly ISet<Text> scores;
 		private readonly Random rng;
 
-		private Tile[,] tiles;
+		//private Tile[,] tiles;
+		private Board board;
 		private ISet<Player> players;
 
 		/*
@@ -30,8 +31,9 @@ namespace Snake
 			timer   = new Timer();
 			scores  = new HashSet<Text>();
 			players = new HashSet<Player>();
-			tiles   = new Tile[32, 16];
+			//tiles   = new Tile[32, 16];
 			rng     = new Random();
+			board   = new Board(new Vector2(32, 16)); 
 
 			// Colors
 			colorP1 = Color.FromArgb(63,  81,  181);
@@ -59,12 +61,10 @@ namespace Snake
 			}
 
 			// Fill field with tiles
-			for (var x = 0; x < tiles.GetLength(0); x++)
-				for (var y = 0; y < tiles.GetLength(1); y++)
-					tiles[x, y] = new Tile(new Vector2(x * 32, y * 32), GetRandomBackground());
+			board.FillWithRandomTiles();
 			
 			// Players
-			tiles[rng.Next(32), rng.Next(16)].FillColor = colorP1;
+			board.SetTileColor(new Vector2(rng.Next(32), rng.Next(16)), colorP1);
 		}
 
 		public void Run()
@@ -91,11 +91,7 @@ namespace Snake
 				score.Draw(paintEventArgs.Graphics);
 
 			// Draw tiles
-			for (var x = 0; x < tiles.GetLength(0); x++)
-				for (var y = 0; y < tiles.GetLength(1); y++)
-					tiles[x, y].Draw(paintEventArgs.Graphics);
+			board.Draw(paintEventArgs.Graphics);
 		}
-
-		private Color GetRandomBackground() => Color.FromArgb(rng.Next(67, 102), rng.Next(160, 187), rng.Next(71, 106));
 	}
 }

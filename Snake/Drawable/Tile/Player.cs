@@ -23,7 +23,7 @@ namespace Snake
 
 		private void SetDirection(Direction direction) => currentDirection = direction;
 
-		public void HandleKey(Keys key)
+		public void Update(Keys key)
 		{
 			if (IsDead)
 				return;

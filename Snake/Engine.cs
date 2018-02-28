@@ -83,7 +83,7 @@ namespace Snake
 		{
 			// Update key presses for players
 			foreach (var player in players)
-				player.HandleKey(form.KeyData);
+				player.Update(form.KeyData);
 
 			form.Refresh();
 		}

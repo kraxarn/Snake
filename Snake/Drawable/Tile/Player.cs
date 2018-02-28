@@ -9,7 +9,7 @@ namespace Snake
 		public enum Direction { Up, Right, Down, Left }
 		private Direction currentDirection;
 
-		private Keybinding keybinding;
+		private readonly Keybinding keybinding;
 
 		public Player(int num)
 		{
@@ -17,11 +17,13 @@ namespace Snake
 			keybinding = new Keybinding(num);
 		}
 
-		public void SetDirection(Direction direction) => currentDirection = direction;
+		private void SetDirection(Direction direction) => currentDirection = direction;
 
 		public void HandleKey(Keys key)
 		{
-			
+			var pressed = keybinding.GetPressedDirection(key);
+			if (pressed != Keybinding.Input.None)
+				SetDirection(Keybinding.ToDirection(pressed));
 		}
 
 		public void Draw(Graphics g)

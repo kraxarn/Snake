@@ -5,6 +5,8 @@ namespace Snake
 {
 	public class Keybinding
 	{
+		public enum Input { None, Up, Right, Down, Left }
+
 		private readonly Keys up, right, down, left;
 
 		public Keybinding(int player)
@@ -39,20 +41,37 @@ namespace Snake
 		public bool IsDownPressed(Keys keys)  => keys == down;
 		public bool IsLeftPressed(Keys keys)  => keys == left;
 
-		public Player.Direction GetPresseDirection(Keys keys)
+		public Input GetPressedDirection(Keys keys)
 		{
 			switch (keys)
 			{
 				case Keys.Up:
-					return Player.Direction.Up;
+					return Input.Up;
 				case Keys.Right:
-					return Player.Direction.Right;
+					return Input.Right;
 				case Keys.Down:
-					return Player.Direction.Down;
+					return Input.Down;
 				case Keys.Left:
+					return Input.Left;
+				default:
+					return Input.None;
+			}
+		}
+
+		public static Player.Direction ToDirection(Input input)
+		{
+			switch (input)
+			{
+				case Input.Up:
+					return Player.Direction.Up;
+				case Input.Right:
+					return Player.Direction.Right;
+				case Input.Down:
+					return Player.Direction.Down;
+				case Input.Left:
 					return Player.Direction.Left;
 				default:
-					throw new InvalidOperationException("Direction not valid");
+					throw new InvalidOperationException("Invalid direction");
 			}
 		}
 	}

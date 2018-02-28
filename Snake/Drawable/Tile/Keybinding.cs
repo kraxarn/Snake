@@ -36,11 +36,6 @@ namespace Snake
 			}
 		}
 
-		public bool IsUpPressed(Keys keys)    => keys == up;
-		public bool IsRightPressed(Keys keys) => keys == right;
-		public bool IsDownPressed(Keys keys)  => keys == down;
-		public bool IsLeftPressed(Keys keys)  => keys == left;
-
 		public Input GetPressedDirection(Keys keys)
 		{
 			switch (keys)

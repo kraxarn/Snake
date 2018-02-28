@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace Snake
 {
@@ -9,6 +10,11 @@ namespace Snake
 		public void Draw(Graphics g)
 		{
 			throw new System.NotImplementedException();
+		}
+
+		public void Die()
+		{
+			throw new NotImplementedException("Player.Die");
 		}
 	}
 }

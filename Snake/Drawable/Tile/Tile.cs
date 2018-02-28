@@ -28,7 +28,7 @@ namespace Snake
 			g.FillRectangle(drawer, shape);
 		}
 
-        public void Collide(Player player)
+        public virtual void Collide(Player player)
         {
             
         }

@@ -1,8 +1,8 @@
 ﻿namespace Snake
 {
-	public class Wall : Tile, ICollidable
+	public class Wall : Tile
 	{
-		public void Collide(Player player)
+		public override void Collide(Player player)
 		{
 			player.Die();
 		}

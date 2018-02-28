@@ -5,7 +5,7 @@ namespace Snake
 {
 	public partial class FormMain : Form
 	{
-		public Keys Keys { get; private set; }
+		public Keys KeyData { get; private set; }
 
 		public FormMain()
 		{
@@ -31,7 +31,7 @@ namespace Snake
 
 		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
 		{
-			Keys = keyData;
+			KeyData = keyData;
 			return base.ProcessCmdKey(ref msg, keyData);
 		}
 	}

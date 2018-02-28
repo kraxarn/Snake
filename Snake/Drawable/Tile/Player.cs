@@ -25,9 +25,11 @@ namespace Snake
 
 		public void Update(Keys key)
 		{
+			// Don't move or update if we died
 			if (isDead)
 				return;
-
+			
+			// Update current direction
 			var pressed = keybinding.GetPressedDirection(key);
 			if (pressed != Keybinding.Input.None)
 				SetDirection(Keybinding.ToDirection(pressed));

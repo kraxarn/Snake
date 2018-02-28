@@ -38,19 +38,18 @@ namespace Snake
 
 		public Input GetPressedDirection(Keys keys)
 		{
-			switch (keys)
-			{
-				case Keys.Up:
-					return Input.Up;
-				case Keys.Right:
-					return Input.Right;
-				case Keys.Down:
-					return Input.Down;
-				case Keys.Left:
-					return Input.Left;
-				default:
-					return Input.None;
-			}
+			// We pressed a key
+			if (keys == up)
+				return Input.Up;
+			if (keys == right)
+				return Input.Right;
+			if (keys == down)
+				return Input.Down;
+			if (keys == left)
+				return Input.Left;
+
+			// We didn't press anything
+			return Input.None;
 		}
 
 		public static Player.Direction ToDirection(Input input)

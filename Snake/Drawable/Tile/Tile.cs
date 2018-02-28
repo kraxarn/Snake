@@ -6,7 +6,7 @@ namespace Snake
 	{
 		private Vector2 position;
 		private readonly SolidBrush drawer;
-		private readonly Rectangle shape;
+		private Rectangle shape;
 
 		public Color FillColor
 		{
@@ -32,5 +32,9 @@ namespace Snake
         {
             
         }
-    }
+
+		protected void SetColor(Color color) => drawer.Color = color;
+
+		protected void SetPosition(Vector2 newPosition) => shape.Location = newPosition.ToPoint();
+	}
 }

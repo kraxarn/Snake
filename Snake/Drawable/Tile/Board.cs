@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Security.Cryptography;
 
 namespace Snake
 {
@@ -38,6 +39,13 @@ namespace Snake
 			tiles[pos.X, pos.Y].FillColor = color;
 		}
 
+		public void SwapTiles(Vector2 pos1, Vector2 pos2)
+		{
+
+		}
+
 		private Color GetRandomBackground() => Color.FromArgb(rng.Next(67, 102), rng.Next(160, 187), rng.Next(71, 106));
+
+		public Vector2 GetRandomPosition() => new Vector2(rng.Next(tiles.GetLength(0)), rng.Next(tiles.GetLength(1)));
 	}
 }

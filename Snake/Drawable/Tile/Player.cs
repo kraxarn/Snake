@@ -5,20 +5,22 @@ using System.Windows.Forms;
 
 namespace Snake
 {
-	public class Player : IDrawable
+	public class Player : Tile
 	{
+		private Vector2 position;
 		public enum Direction { Up, Right, Down, Left }
 		private Direction currentDirection;
 
 		private readonly Keybinding keybinding;
-
 		private bool isDead;
 
-		public Player(int num)
+		public Player(int num, Vector2 position, Color color)
 		{
 			currentDirection = (Direction) new Random().Next(3);
 			keybinding = new Keybinding(num);
 			isDead = false;
+			this.position = position;
+			SetColor(color);
 		}
 
 		private void SetDirection(Direction direction) => currentDirection = direction;
@@ -33,11 +35,9 @@ namespace Snake
 			var pressed = keybinding.GetPressedDirection(key);
 			if (pressed != Keybinding.Input.None)
 				SetDirection(Keybinding.ToDirection(pressed));
-		}
 
-		public void Draw(Graphics g)
-		{
-			throw new NotImplementedException("Player.Draw");
+			board.SetTile(position, this);
+			SetPosition(new Vector2(position.X * 32, position.Y * 32));
 		}
 
 		public void Die() => isDead = true;

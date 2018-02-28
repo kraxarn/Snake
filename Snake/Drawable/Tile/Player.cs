@@ -12,20 +12,20 @@ namespace Snake
 
 		private readonly Keybinding keybinding;
 
-		private bool IsDead;
+		private bool isDead;
 
 		public Player(int num)
 		{
 			currentDirection = (Direction) new Random().Next(3);
 			keybinding = new Keybinding(num);
-			IsDead = false;
+			isDead = false;
 		}
 
 		private void SetDirection(Direction direction) => currentDirection = direction;
 
 		public void Update(Keys key)
 		{
-			if (IsDead)
+			if (isDead)
 				return;
 
 			var pressed = keybinding.GetPressedDirection(key);
@@ -38,6 +38,6 @@ namespace Snake
 			throw new NotImplementedException("Player.Draw");
 		}
 
-		public void Die() => IsDead = true;
+		public void Die() => isDead = true;
 	}
 }

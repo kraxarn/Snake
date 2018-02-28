@@ -48,16 +48,16 @@ namespace Snake
 
 			// Players
 			scores.Add(new Text("P1: 0", "Consolas", 12, new Point(8, 8),  colorP1));
-			players.Add(new Player());
+			players.Add(new Player(1));
 			if (numPlayers >= 2)
 			{
 				scores.Add(new Text("P2: 0", "Consolas", 12, new Point(8, 24), colorP2));
-				players.Add(new Player());
+				players.Add(new Player(2));
 			}
 			if (numPlayers >= 3)
 			{
 				scores.Add(new Text("P3: 0", "Consolas", 12, new Point(8, 40), colorP3));
-				players.Add(new Player());
+				players.Add(new Player(3));
 			}
 
 			// Fill field with tiles

@@ -28,15 +28,9 @@ namespace Snake
 					tiles[x, y] = new Tile(new Vector2(x * 32, y * 32), GetRandomBackground());
 		}
 
-		public void SetTile(Vector2 pos, Tile tile)
-		{
-			tiles[pos.X, pos.Y] = tile;
-		}
+		public void SetTile(Vector2 pos, Tile tile) => tiles[pos.X, pos.Y] = tile;
 
-		public void SetTileColor(Vector2 pos, Color color)
-		{
-			tiles[pos.X, pos.Y].FillColor = color;
-		}
+		public void SetTileColor(Vector2 pos, Color color) => tiles[pos.X, pos.Y].FillColor = color;
 
 		public void SwapTiles(Vector2 pos1, Vector2 pos2)
 		{

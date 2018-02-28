@@ -5,8 +5,8 @@ namespace Snake
 {
 	public class Board
 	{
-		private Tile[,] tiles;
-		private Random rng;
+		private readonly Tile[,] tiles;
+		private readonly Random  rng;
 
 		public Board(Vector2 size)
 		{
@@ -30,7 +30,7 @@ namespace Snake
 
 		public void SetTile(Vector2 pos, Tile tile)
 		{
-
+			tiles[pos.X, pos.Y] = tile;
 		}
 
 		public void SetTileColor(Vector2 pos, Color color)

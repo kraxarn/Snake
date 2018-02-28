@@ -9,7 +9,7 @@ namespace Snake
 
 		public void Draw(Graphics g)
 		{
-			throw new NotImplementedException();
+			throw new NotImplementedException("Player.Draw");
 		}
 
 		public void Die()

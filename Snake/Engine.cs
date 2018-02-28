@@ -81,6 +81,9 @@ namespace Snake
 
 		private void Update(object sender, EventArgs eventArgs)
 		{
+			foreach (var player in players)
+				player.HandleKey(form.KeyData);
+
 			form.Refresh();
 		}
 

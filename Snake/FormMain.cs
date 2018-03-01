@@ -11,8 +11,8 @@ namespace Snake
 		public FormMain()
 		{
 			Text   = "Snake";
-			Width  = 1024;	// 32 * 32
-			Height = 512;	// 16 * 32
+			Width  = 1032;	// 32 * 32 (+ 8)
+			Height = 543;	// 16 * 32 (+ 31)
 
 			StartPosition = FormStartPosition.CenterScreen;
 

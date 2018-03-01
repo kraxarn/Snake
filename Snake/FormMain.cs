@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Snake
@@ -24,6 +25,10 @@ namespace Snake
 
 			// Set background color
 			BackColor = Color.FromArgb(76, 175, 80);
+
+			// Set icon
+			var res = new ComponentResourceManager(typeof(FormMain));
+			Icon = (Icon) res.GetObject("$this.Icon");
 
 			// Default WinForm stuff
 			//InitializeComponent();

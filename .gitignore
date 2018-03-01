@@ -264,3 +264,6 @@ __pycache__/
 *.xmind
 *.png
 *.svg
+
+# Ignore Windows cache files
+*.db

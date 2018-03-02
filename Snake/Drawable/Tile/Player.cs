@@ -65,5 +65,7 @@ namespace Snake
 					throw new InvalidOperationException("Invalid direction: Player.GetNewPosition");
 			}
 		}
+
+		public string GetDebugString() => $"Direction: {currentDirection}";
 	}
 }

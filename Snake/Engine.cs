@@ -85,6 +85,8 @@ namespace Snake
 
 		private void Update(object sender, EventArgs eventArgs)
 		{
+			scores.First().Label = players.First().GetDebugString();
+
 			// Update key presses for players
 			foreach (var player in players)
 				player.Update(form.KeyData, board);

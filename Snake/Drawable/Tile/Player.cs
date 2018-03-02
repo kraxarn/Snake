@@ -39,7 +39,11 @@ namespace Snake
 				SetDirection(Keybinding.ToDirection(pressed));
 
 			// Switch current position with new one
-			board.SwapTiles(position, GetNewPosition());
+			var newPos = GetNewPosition();
+			board.SwapTiles(position, newPos);
+
+			// Update to new position
+			position = newPos;
 		}
 
 		public void Die() => isDead = true;

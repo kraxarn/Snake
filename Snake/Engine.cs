@@ -76,7 +76,7 @@ namespace Snake
 			form.Paint += Draw;
 
 			timer.Tick += Update;
-			timer.Interval = 60 / 15;
+			timer.Interval = 1000 / 5;
 			timer.Start();
 
 			Application.Run(form);

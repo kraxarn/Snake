@@ -38,10 +38,12 @@ namespace Snake
 			if (pressed != Keybinding.Input.None)
 				SetDirection(Keybinding.ToDirection(pressed));
 
-			// Switch current position with new one
+			// Get new position to move to
 			var newPos = GetNewPosition();
+			// Check if it's valid
+			if (!board.IsInBounds(position)) return;
+			// Switch current position with new one
 			board.SwapTiles(position, newPos);
-
 			// Update to new position
 			position = newPos;
 		}

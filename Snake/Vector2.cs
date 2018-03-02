@@ -18,5 +18,10 @@ namespace Snake
 		}
 
 		public Point ToPoint() => new Point(X, Y);
+
+		public override string ToString()
+		{
+			return $"{X},{Y}";
+		}
 	}
 }

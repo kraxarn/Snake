@@ -10,9 +10,9 @@ namespace Snake
 		private Vector2 position;
 		public enum Direction { Up, Right, Down, Left }
 		private Direction currentDirection;
-
 		private readonly Keybinding keybinding;
 		private bool isDead;
+		private readonly Random rng;
 
 		public Player(int num, Vector2 position, Color color)
 		{
@@ -21,6 +21,8 @@ namespace Snake
 			isDead = false;
 			this.position = position;
 			SetColor(color);
+			rng = new Random();
+			currentDirection = (Direction) rng.Next(3);
 		}
 
 		private void SetDirection(Direction direction) => currentDirection = direction;
@@ -36,10 +38,32 @@ namespace Snake
 			if (pressed != Keybinding.Input.None)
 				SetDirection(Keybinding.ToDirection(pressed));
 
-			board.SetTile(position, this);
-			SetPosition(new Vector2(position.X * 32, position.Y * 32));
+			// Switch current position with new one
+			board.SwapTiles(position, GetNewPosition());
 		}
 
 		public void Die() => isDead = true;
+
+		public Vector2 GetPosition() => position;
+
+		private Vector2 GetNewPosition()
+		{
+			var x = position.X;
+			var y = position.Y;
+
+			switch (currentDirection)
+			{
+				case Direction.Up:
+					return new Vector2(x, y + 1);
+				case Direction.Right:
+					return new Vector2(x + 1, y);
+				case Direction.Down:
+					return new Vector2(x, y - 1);
+				case Direction.Left:
+					return new Vector2(x - 1, y);
+				default:
+					throw new InvalidOperationException("Invalid direction: Player.GetNewPosition");
+			}
+		}
 	}
 }

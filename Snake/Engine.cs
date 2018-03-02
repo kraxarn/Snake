@@ -11,19 +11,16 @@ namespace Snake
 		private readonly FormMain   form;
 		private readonly Timer      timer;
 		private readonly ISet<Text> scores;
-		private readonly Random rng;
 
 		//private Tile[,] tiles;
-		private Board board;
-		private ISet<Player> players;
+		private readonly Board        board;
+		private readonly ISet<Player> players;
 
 		/*
 		 * P1: Blue   (63,  81,  181)
 		 * P2: Red    (244, 67,  54)
 		 * P3: Orange (255, 152, 0)
 		 */
-
-		//private Color colorP1, colorP2, colorP3;
 
 		public Engine(int numPlayers)
 		{
@@ -32,12 +29,10 @@ namespace Snake
 			timer   = new Timer();
 			scores  = new HashSet<Text>();
 			players = new HashSet<Player>();
-			//tiles   = new Tile[32, 16];
-			rng     = new Random();
 			board   = new Board(new Vector2(32, 16)); 
 
 			// Colors
-			var playerColors = new Color[]
+			var playerColors = new[]
 			{
 				Color.FromArgb(63,  81,  181),
 				Color.FromArgb(244, 67,  54),

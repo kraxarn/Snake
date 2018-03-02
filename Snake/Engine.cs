@@ -23,7 +23,7 @@ namespace Snake
 		 * P3: Orange (255, 152, 0)
 		 */
 
-		private Color colorP1, colorP2, colorP3;
+		//private Color colorP1, colorP2, colorP3;
 
 		public Engine(int numPlayers)
 		{
@@ -37,9 +37,12 @@ namespace Snake
 			board   = new Board(new Vector2(32, 16)); 
 
 			// Colors
-			colorP1 = Color.FromArgb(63,  81,  181);
-			colorP2 = Color.FromArgb(244, 67,  54);
-			colorP3 = Color.FromArgb(255, 152, 0);
+			var playerColors = new Color[]
+			{
+				Color.FromArgb(63,  81,  181),
+				Color.FromArgb(244, 67,  54),
+				Color.FromArgb(255, 152, 0)
+			};
 
 			// Fill field with tiles
 			board.FillWithRandomTiles();
@@ -47,28 +50,13 @@ namespace Snake
 			// Add players
 			for (var i = 0; i < numPlayers; i++)
 			{
-
+				// Add score
+				scores.Add(new Text($"P{i + 1}: 0", "Consolas", 12, new Point(8, 8 + i * 16), playerColors[i]));
+				// Add player
+				var player = new Player(i + 1, board.GetRandomPosition(), playerColors[i]);
+				players.Add(player);
+				board.SetTile(player.GetPosition(), player);
 			}
-
-			// Players
-			scores.Add(new Text("P1: 0", "Consolas", 12, new Point(8, 8),  colorP1));
-			var player1 = new Player(1, board.GetRandomPosition(), colorP1);
-			players.Add(player1);
-			board.SetTile(players.Last().GetPosition(), players.Last());
-
-			if (numPlayers >= 2)
-			{
-				scores.Add(new Text("P2: 0", "Consolas", 12, new Point(8, 24), colorP2));
-				players.Add(new Player(2, board.GetRandomPosition(), colorP2));
-			}
-			if (numPlayers >= 3)
-			{
-				scores.Add(new Text("P3: 0", "Consolas", 12, new Point(8, 40), colorP3));
-				players.Add(new Player(3, board.GetRandomPosition(), colorP3));
-			}
-			
-			// Players
-			//board.SetTileColor(new Vector2(rng.Next(32), rng.Next(16)), colorP1);
 		}
 
 		public void Run()

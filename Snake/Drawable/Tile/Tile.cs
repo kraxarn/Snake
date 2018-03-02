@@ -4,7 +4,6 @@ namespace Snake
 {
 	public class Tile : IDrawable, ICollidable
 	{
-		private Vector2 position;
 		private readonly SolidBrush drawer;
 		private Rectangle shape;
 
@@ -16,15 +15,16 @@ namespace Snake
 
 		public Tile(Vector2 position, Color color, int size = 32)
 		{
-			this.position = position;
 			drawer = new SolidBrush(color);
 			shape = new Rectangle(position.ToPoint(), new Size(size, size));
 		}
 
 		public Tile() : this(new Vector2(), Color.White) { }
 
-		public void Draw(Graphics g)
+		public void Draw(Graphics g, int x, int y)
 		{
+			shape.X = x;
+			shape.Y = y;
 			g.FillRectangle(drawer, shape);
 		}
 

@@ -18,7 +18,7 @@ namespace Snake
 		{
 			for (var x = 0; x < tiles.GetLength(0); x++)
 				for (var y = 0; y < tiles.GetLength(1); y++)
-					tiles[x, y].Draw(g);
+					tiles[x, y].Draw(g, x * 32, y * 32);
 		}
 
 		public void FillWithRandomTiles()

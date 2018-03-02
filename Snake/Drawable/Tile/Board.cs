@@ -45,6 +45,6 @@ namespace Snake
 
 		public Vector2 GetRandomPosition() => new Vector2(rng.Next(tiles.GetLength(0)), rng.Next(tiles.GetLength(1)));
 
-		public bool IsInBounds(Vector2 position) => position.X < tiles.GetLength(0) && position.Y < tiles.GetLength(1);
+		public bool IsInBounds(Vector2 position) => position.X < tiles.GetLength(0) - 1 && position.Y < tiles.GetLength(1) - 1 && position.X > 0 && position.Y > 0;
 	}
 }

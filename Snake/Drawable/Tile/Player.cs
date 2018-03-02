@@ -60,11 +60,11 @@ namespace Snake
 			switch (currentDirection)
 			{
 				case Direction.Up:
-					return new Vector2(x, y + 1);
+					return new Vector2(x, y - 1);
 				case Direction.Right:
 					return new Vector2(x + 1, y);
 				case Direction.Down:
-					return new Vector2(x, y - 1);
+					return new Vector2(x, y + 1);
 				case Direction.Left:
 					return new Vector2(x - 1, y);
 				default:

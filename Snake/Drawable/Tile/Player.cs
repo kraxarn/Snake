@@ -43,7 +43,7 @@ namespace Snake
 			// Die if we hit the edge
 			if (!board.IsInBounds(position))
 			{
-				isDead = true;
+				Die();
 				return;
 			}
 			// Switch current position with new one

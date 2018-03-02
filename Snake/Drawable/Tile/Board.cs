@@ -7,25 +7,27 @@ namespace Snake
 	{
 		private readonly Tile[,] tiles;
 		private readonly Random  rng;
+		private readonly int     tileSize;
 
-		public Board(Vector2 size)
+		public Board(Vector2 size, int tileSize = 32)
 		{
 			tiles = new Tile[size.X, size.Y];
 			rng   = new Random();
+			this.tileSize = tileSize;
 		}
 
 		public void Draw(Graphics g)
 		{
 			for (var x = 0; x < tiles.GetLength(0); x++)
 				for (var y = 0; y < tiles.GetLength(1); y++)
-					tiles[x, y].Draw(g, x * 32, y * 32);
+					tiles[x, y].Draw(g, x * tileSize, y * tileSize);
 		}
 
 		public void FillWithRandomTiles()
 		{
 			for (var x = 0; x < tiles.GetLength(0); x++)
 				for (var y = 0; y < tiles.GetLength(1); y++)
-					tiles[x, y] = new Tile(new Vector2(x * 32, y * 32), GetRandomBackground());
+					tiles[x, y] = new Tile(new Vector2(x * tileSize, y * tileSize), GetRandomBackground());
 		}
 
 		public void SetTile(Vector2 pos, Tile tile) => tiles[pos.X, pos.Y] = tile;

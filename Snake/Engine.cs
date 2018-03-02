@@ -96,12 +96,12 @@ namespace Snake
 
 		private void Draw(object sender, PaintEventArgs paintEventArgs)
 		{
+			// Draw tiles
+			board.Draw(paintEventArgs.Graphics);
+
 			// Draw scores
 			foreach (var score in scores)
 				score.Draw(paintEventArgs.Graphics);
-
-			// Draw tiles
-			board.Draw(paintEventArgs.Graphics);
 		}
 	}
 }

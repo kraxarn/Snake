@@ -40,8 +40,12 @@ namespace Snake
 
 			// Get new position to move to
 			var newPos = GetNewPosition();
-			// Check if it's valid
-			if (!board.IsInBounds(position)) return;
+			// Die if we hit the edge
+			if (!board.IsInBounds(position))
+			{
+				isDead = true;
+				return;
+			}
 			// Switch current position with new one
 			board.SwapTiles(position, newPos);
 			// Update to new position
@@ -72,6 +76,6 @@ namespace Snake
 			}
 		}
 
-		public string GetDebugString() => $"Direction: {currentDirection}";
+		public string GetDebugString() => $"Direction: {currentDirection}, Dead: {isDead}";
 	}
 }

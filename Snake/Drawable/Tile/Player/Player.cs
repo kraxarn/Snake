@@ -12,6 +12,7 @@ namespace Snake
 		private readonly Keybinding keybinding;
 		private bool isDead;
 		private readonly LinkedList<PlayerBody> bodies;
+		private int growLength;
 
 		public Player(int num, Vector2 position, Color color)
 		{
@@ -19,6 +20,9 @@ namespace Snake
 			isDead = false;
 			SetColor(color);
 			currentDirection = (Direction) new Random().Next(3);
+
+			// We start as 3 blocks
+			growLength = 2;
 
 			// Create list of bodies
 			bodies = new LinkedList<PlayerBody>();
@@ -59,6 +63,11 @@ namespace Snake
 		{
 			get => bodies.First.Value.Position;
 			private set => bodies.First.Value.Position = value;
+		}
+
+		public int GrowLength
+		{
+			set => growLength = value;
 		}
 
 		private Vector2 GetNewPosition()

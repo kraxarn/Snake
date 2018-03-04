@@ -43,7 +43,7 @@ namespace Snake
 				Color.FromArgb(255, 152, 0)
 			};
 
-			// Fill field with tiles
+			// Fill board with tiles, "grass"
 			board.FillWithRandomTiles();
 
 			// Add players

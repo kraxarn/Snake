@@ -147,13 +147,13 @@ namespace Snake
 			var x = HeadPosition.X;
 			var y = HeadPosition.Y;
 
-			if (x < 4)
+			if (x < 6)
 				return Direction.Right;
-			if (x > 28)
+			if (x > 26)
 				return Direction.Left;
-			if (y < 4)
+			if (y < 6)
 				return Direction.Down;
-			if (y > 12)
+			if (y > 10)
 				return Direction.Up;
 
 			// If it doesn't matter, return random

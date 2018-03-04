@@ -44,7 +44,7 @@ namespace Snake
 
 		protected override void OnKeyUp(KeyEventArgs e)
 		{
-			CurrentKeyDown = Keys.KeyCode;
+			CurrentKeyDown = Keys.None;
 			base.OnKeyUp(e);
 		}
 

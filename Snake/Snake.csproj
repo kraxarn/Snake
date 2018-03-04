@@ -84,13 +84,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Drawable\Text\Scoreboard.cs" />
+    <Compile Include="Drawable\Tile\Player\PlayerBody.cs" />
     <Compile Include="Helper\Board.cs" />
     <Compile Include="Drawable\Tile\Food\FoodExtra.cs" />
     <Compile Include="Drawable\Tile\Food\FoodSpeed.cs" />
     <Compile Include="Drawable\Tile\Food\FoodStandard.cs" />
     <Compile Include="Interface\ICollidable.cs" />
     <Compile Include="Helper\Keybinding.cs" />
-    <Compile Include="Drawable\Tile\Player.cs" />
+    <Compile Include="Drawable\Tile\Player\Player.cs" />
     <Compile Include="Drawable\Tile\Wall.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="Drawable\Tile\Food\Food.cs" />

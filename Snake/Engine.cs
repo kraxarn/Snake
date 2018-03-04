@@ -57,6 +57,11 @@ namespace Snake
 				players.Add(player);
 				board.SetTile(player.HeadPosition, player.HeadTile);
 			}
+
+			// Place 3-6 random walls
+			var walls = rng.Next(3, 6);
+			for (var i = 0; i < walls; i++)
+				board.SetTile(board.GetRandomFreePosition(), new Wall());
 		}
 
 		public void Run()

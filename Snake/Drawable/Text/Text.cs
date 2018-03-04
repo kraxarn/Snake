@@ -7,7 +7,7 @@ namespace Snake
 		private readonly Font drawFont;
 		private readonly SolidBrush drawer;
 
-		public string Label { private get; set; }
+		public string Label;
 		private Point pos;
 
 		public Text(string label, string font, int size, Point pos, Color color)

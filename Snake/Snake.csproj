@@ -83,6 +83,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Drawable\Text\Scoreboard.cs" />
     <Compile Include="Drawable\Tile\Board.cs" />
     <Compile Include="Drawable\Tile\Food\FoodExtra.cs" />
     <Compile Include="Drawable\Tile\Food\FoodSpeed.cs" />
@@ -108,7 +109,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Drawable\Text.cs" />
+    <Compile Include="Drawable\Text\Text.cs" />
     <Compile Include="Drawable\Tile\Tile.cs" />
     <Compile Include="Vector2.cs" />
     <EmbeddedResource Include="FormMain.resx">

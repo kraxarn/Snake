@@ -84,12 +84,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Drawable\Text\Scoreboard.cs" />
-    <Compile Include="Drawable\Tile\Board.cs" />
+    <Compile Include="Helper\Board.cs" />
     <Compile Include="Drawable\Tile\Food\FoodExtra.cs" />
     <Compile Include="Drawable\Tile\Food\FoodSpeed.cs" />
     <Compile Include="Drawable\Tile\Food\FoodStandard.cs" />
-    <Compile Include="Drawable\Interface\ICollidable.cs" />
-    <Compile Include="Drawable\Tile\Keybinding.cs" />
+    <Compile Include="Interface\ICollidable.cs" />
+    <Compile Include="Helper\Keybinding.cs" />
     <Compile Include="Drawable\Tile\Player.cs" />
     <Compile Include="Drawable\Tile\Wall.cs" />
     <Compile Include="Engine.cs" />
@@ -100,7 +100,7 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Drawable\Interface\IDrawable.cs" />
+    <Compile Include="Interface\IDrawable.cs" />
     <Compile Include="FormPlayers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,7 +111,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Drawable\Text\Text.cs" />
     <Compile Include="Drawable\Tile\Tile.cs" />
-    <Compile Include="Vector2.cs" />
+    <Compile Include="Helper\Vector2.cs" />
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>

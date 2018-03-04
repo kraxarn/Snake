@@ -130,7 +130,7 @@ namespace Snake
 
 				// Show message
 				var nl = Environment.NewLine;
-				MessageBox.Show($"Congratulations!{nl}Player {highestPlayer + 1} won the game with {highestScore} points.", @"Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show($@"Congratulations!{nl}Player {highestPlayer + 1} won the game with {highestScore} points.", @"Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 				// Close
 				form.Close();

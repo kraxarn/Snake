@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Snake
@@ -56,6 +57,8 @@ namespace Snake
 			{
 				// If we should grow, just swap tail to head
 				board.SwapTiles(Tail, newPos);
+				// Update head
+				SetHeadFromTail();
 			}
 			else
 			{
@@ -80,6 +83,22 @@ namespace Snake
 		{
 			get => bodies.Last.Value.Position;
 			private set => bodies.Last.Value.Position = value;
+		}
+
+		private void SetNewHead(PlayerBody body)
+		{
+			bodies.Remove(bodies.Single(b => b.Equals(body)));
+			bodies.AddFirst(body);
+		}
+
+		private void SetHeadFromTail()
+		{
+			// Save new head temporarily
+			var temp = bodies.Last;
+			// Remove tail
+			bodies.RemoveLast();
+			// Readd it as head
+			bodies.AddFirst(temp);
 		}
 
 		public int GrowLength

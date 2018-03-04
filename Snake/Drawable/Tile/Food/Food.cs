@@ -4,7 +4,9 @@ namespace Snake
 {
 	public abstract class Food : Tile
 	{
-		// yum yum
-
+		protected Food()
+		{
+			SetColor(Color.FromArgb(255, 87, 34));
+		}
 	}
 }

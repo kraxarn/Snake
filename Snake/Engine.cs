@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace Snake
 {
 	public class Engine
 	{
-		private readonly FormMain   form;
-		private readonly Timer      timer;
-		private readonly ISet<Text> scores;
-
-		//private Tile[,] tiles;
+		private readonly FormMain     form;
+		private readonly Timer        timer;
+		private readonly ISet<Text>   scores;
 		private readonly Board        board;
 		private readonly ISet<Player> players;
+		private readonly Random       rng;
 
 		private bool skipFrame;
 
@@ -32,6 +32,7 @@ namespace Snake
 			scores  = new HashSet<Text>();
 			players = new HashSet<Player>();
 			board   = new Board(new Vector2(32, 16));
+			rng     = new Random();
 
 			skipFrame = false;
 
@@ -69,9 +70,12 @@ namespace Snake
 			Application.Run(form);
 		}
 
-
 		private void Update(object sender, EventArgs eventArgs)
 		{
+			// See if we should add some food
+			if (rng.Next(100) <= 1)
+				AddRandomFood();
+
 			// See if we should skip the current frame
 			if (skipFrame)
 			{
@@ -97,6 +101,27 @@ namespace Snake
 			// Draw scores
 			foreach (var score in scores)
 				score.Draw(paintEventArgs.Graphics);
+		}
+
+		private void AddRandomFood()
+		{
+			// Get random food
+			var num = rng.Next(2);
+			Food food;
+			switch (num)
+			{
+				case 0:
+					food = new FoodStandard();
+					break;
+				case 1:
+					food = new FoodExtra();
+					break;
+				default:
+					throw new InvalidOperationException("Invalid number for food");
+			}
+
+			// Add food to board
+			board.SetTile(board.GetRandomFreePosition(), food);
 		}
 	}
 }

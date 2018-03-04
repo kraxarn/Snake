@@ -54,7 +54,8 @@ namespace Snake
 				// Add player
 				var player = new Player(i + 1, board.GetRandomFreePosition(), playerColors[i]);
 				players.Add(player);
-				board.SetTile(player.GetPosition(), player);
+				Console.WriteLine($"Settings player position: {player.Position}");
+				board.SetTile(player.Position, player);
 			}
 		}
 

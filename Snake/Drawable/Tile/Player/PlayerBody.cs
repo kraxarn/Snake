@@ -1,12 +1,17 @@
-﻿namespace Snake
+﻿using System.Drawing;
+
+namespace Snake
 {
 	public class PlayerBody : Tile
 	{
-		private Vector2 position;
+		public Vector2 Position;
 
-		public PlayerBody()
+		public PlayerBody(Vector2 position, Color color)
 		{
-
+			// Set color of tile
+			SetColor(color);
+			// Set position
+			Position = position;
 		}
 	}
 }

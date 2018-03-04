@@ -79,7 +79,7 @@ namespace Snake
 				return;
 
 			// See if we should add some food
-			if (rng.Next(100) <= 1)
+			if (rng.Next(100) <= 3)
 				AddRandomFood();
 
 			// See if we should skip the current frame

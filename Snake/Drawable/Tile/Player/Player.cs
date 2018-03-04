@@ -46,20 +46,20 @@ namespace Snake
 			// Get new position
 			var newPos = GetNewPosition();
 			// Die if we hit the edge
-			if (!board.IsInBounds(Position))
+			if (!board.IsInBounds(Head))
 			{
 				Die();
 				return;
 			}
 			// Switch current position with new one
-			board.SwapTiles(Position, newPos);
+			board.SwapTiles(Head, newPos);
 			// Update to new position
-			Position = newPos;
+			Head = newPos;
 		}
 
 		public void Die() => isDead = true;
 
-		public Vector2 Position
+		public Vector2 Head
 		{
 			get => bodies.First.Value.Position;
 			private set => bodies.First.Value.Position = value;
@@ -73,8 +73,8 @@ namespace Snake
 		private Vector2 GetNewPosition()
 		{
 			// Position shortcuts
-			var x = Position.X;
-			var y = Position.Y;
+			var x = Head.X;
+			var y = Head.Y;
 
 			// Get where we are supposed to go
 			switch (currentDirection)

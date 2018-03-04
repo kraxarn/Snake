@@ -53,6 +53,10 @@ namespace Snake
 				Die();
 				return;
 			}
+
+			// Check if next tile has collison
+			if (board.GetTile(newPos).Collide(this))
+				board.SetTile(newPos, new Tile(newPos, board.GetRandomBackground()));
 			
 			if (growLength <= 0)
 			{

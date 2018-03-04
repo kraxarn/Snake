@@ -2,9 +2,10 @@
 {
 	public class Wall : Tile
 	{
-		public override void Collide(Player player)
+		public override bool Collide(Player player)
 		{
 			player.Die();
+			return true;
 		}
 	}
 }

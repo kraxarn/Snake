@@ -15,6 +15,9 @@ namespace Snake
 		private readonly LinkedList<PlayerBody> bodies;
 		private int growLength;
 		private Color color;
+		private int score;
+
+		public int Score => score;
 
 		public Player(int num, Vector2 position, Color color)
 		{
@@ -109,6 +112,8 @@ namespace Snake
 		{
 			set => growLength = value;
 		}
+
+		public void AddScore(int amount) => score += amount;
 
 		private Vector2 GetNewPosition()
 		{

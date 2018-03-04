@@ -2,9 +2,10 @@
 {
 	public class FoodStandard : Food
 	{
-		public override void Collide(Player player)
+		public override bool Collide(Player player)
 		{
 			player.GrowLength = 1;
+			return true;
 		}
 	}
 }

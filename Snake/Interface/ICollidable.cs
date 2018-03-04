@@ -2,6 +2,6 @@
 {
 	public interface ICollidable
 	{
-		void Collide(Player player);
+		bool Collide(Player player);
 	}
 }

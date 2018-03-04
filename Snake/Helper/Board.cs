@@ -44,6 +44,19 @@ namespace Snake
 		private Color GetRandomBackground() => Color.FromArgb(rng.Next(67, 102), rng.Next(160, 187), rng.Next(71, 106));
 
 		public Vector2 GetRandomPosition() => new Vector2(rng.Next(tiles.GetLength(0)), rng.Next(tiles.GetLength(1)));
+		
+		public Vector2 GetRandomFreePosition()
+		{
+			// Starting position
+			var pos = GetRandomPosition();
+
+			// Keep getting new random position until we get an empty one
+			while (tiles[pos.X, pos.Y].GetType() != typeof(Tile))
+				pos = GetRandomPosition();
+			
+			// Return it
+			return pos;
+		}
 
 		public bool IsInBounds(Vector2 position) => position.X < tiles.GetLength(0) - 1 && position.Y < tiles.GetLength(1) - 1 && position.X > 0 && position.Y > 0;
 	}

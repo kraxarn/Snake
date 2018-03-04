@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Snake
 {
-	public partial class FormMain : Form
+	public sealed partial class FormMain : Form
 	{
 		public Keys KeyData { get; private set; }
 		public Keys CurrentKeyDown { get; private set; }

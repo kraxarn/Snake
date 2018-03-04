@@ -65,6 +65,7 @@ namespace Snake
 			{
 				// If we should grow, just create new body
 				bodies.AddFirst(new PlayerBody(newPos, color));
+				board.SetTile(newPos, HeadTile);
 				growLength--;
 			}
 
@@ -85,6 +86,8 @@ namespace Snake
 			get => bodies.Last.Value.Position;
 			private set => bodies.Last.Value.Position = value;
 		}
+
+		public Tile HeadTile => bodies.First.Value;
 
 		private void SetNewHead(PlayerBody body)
 		{

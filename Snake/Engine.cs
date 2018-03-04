@@ -15,7 +15,7 @@ namespace Snake
 		private readonly ISet<Player> players;
 		private readonly Random       rng;
 
-		private bool skipFrame;
+		private bool skipFrame, paused;
 
 		/*
 		 * P1: Blue   (63,  81,  181)
@@ -34,6 +34,7 @@ namespace Snake
 			rng     = new Random();
 
 			skipFrame = false;
+			paused    = false;
 
 			// Colors
 			var playerColors = new[]
@@ -71,6 +72,12 @@ namespace Snake
 
 		private void Update(object sender, EventArgs eventArgs)
 		{
+			// Check if paused
+			if (form.CurrentKeyDown == Keys.Escape)
+				paused = !paused;
+			if (paused)
+				return;
+
 			// See if we should add some food
 			if (rng.Next(100) <= 1)
 				AddRandomFood();

@@ -16,6 +16,8 @@ namespace Snake
 		private readonly Board        board;
 		private readonly ISet<Player> players;
 
+		private bool skipFrame;
+
 		/*
 		 * P1: Blue   (63,  81,  181)
 		 * P2: Red    (244, 67,  54)
@@ -29,7 +31,9 @@ namespace Snake
 			timer   = new Timer();
 			scores  = new HashSet<Text>();
 			players = new HashSet<Player>();
-			board   = new Board(new Vector2(32, 16)); 
+			board   = new Board(new Vector2(32, 16));
+
+			skipFrame = false;
 
 			// Colors
 			var playerColors = new[]
@@ -59,7 +63,7 @@ namespace Snake
 			form.Paint += Draw;
 
 			timer.Tick += Update;
-			timer.Interval = 1000 / 5;
+			timer.Interval = 100;
 			timer.Start();
 
 			Application.Run(form);
@@ -68,6 +72,14 @@ namespace Snake
 
 		private void Update(object sender, EventArgs eventArgs)
 		{
+			// See if we should skip the current frame
+			if (skipFrame)
+			{
+				skipFrame = false;
+				return;
+			}
+			skipFrame = true;
+
 			scores.First().Label = players.First().GetDebugString();
 
 			// Update key presses for players

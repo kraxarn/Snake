@@ -104,6 +104,41 @@ namespace Snake
 			foreach (var player in players)
 				player.Update(form.KeyData, board);
 
+			// See if all players are dead
+			var allDead = true;
+			foreach (var player in players)
+				if (!player.IsDead)
+					allDead = false;
+
+			if (allDead)
+			{
+				// First, pause the game
+				paused = true;
+
+				// Variables
+				var highestScore  = 0;
+				var highestPlayer = 0;
+				var index         = 0;
+
+				// Check who had the highest
+				foreach (var player in players)
+				{
+					if (player.Score > highestScore)
+					{
+						highestScore  = player.Score;
+						highestPlayer = index;
+						index++;
+					}
+				}
+
+				// Show message
+				var nl = Environment.NewLine;
+				MessageBox.Show($"Congratulations!{nl}Player {highestPlayer + 1} won the game with {highestScore} points.", @"Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+				// Close
+				form.Close();
+			}
+
 			form.Refresh();
 		}
 

@@ -16,9 +16,9 @@ namespace Snake
 		private readonly Keybinding keybinding;
 		private readonly Color      color;
 
-		private bool isDead;
 		private int  growLength;
-		public  int  Score { get; private set; }
+		public  int  Score  { get; private set; }
+		public bool  IsDead { get; private set; }
 
 		public Vector2 HeadPosition
 		{
@@ -34,7 +34,7 @@ namespace Snake
 		public Player(int num, Vector2 position, Color color)
 		{
 			keybinding = new Keybinding(num);
-			isDead = false;
+			IsDead = false;
 			this.color = color;
 
 			// We start as 3 blocks
@@ -54,7 +54,7 @@ namespace Snake
 		public void Update(Keys key, Board board)
 		{
 			// Don't move or update if we died
-			if (isDead)
+			if (IsDead)
 				return;
 			
 			// Update current direction
@@ -97,7 +97,7 @@ namespace Snake
 		public void Die()
 		{
 			// Set player as dead
-			isDead = true;
+			IsDead = true;
 
 			// Change to grey color
 			foreach (var body in bodies)

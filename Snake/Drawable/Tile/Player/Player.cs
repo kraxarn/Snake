@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Snake
 {
-	public class Player : Tile
+	public class Player
 	{
 		public enum Direction { Up, Right, Down, Left }
 		private Direction currentDirection;
@@ -14,12 +14,13 @@ namespace Snake
 		private bool isDead;
 		private readonly LinkedList<PlayerBody> bodies;
 		private int growLength;
+		private Color color;
 
 		public Player(int num, Vector2 position, Color color)
 		{
 			keybinding = new Keybinding(num);
 			isDead = false;
-			SetColor(color);
+			this.color = color;
 			currentDirection = (Direction) new Random().Next(3);
 
 			// We start as 3 blocks
@@ -63,7 +64,7 @@ namespace Snake
 			else
 			{
 				// If we should grow, just create new body
-				bodies.AddFirst(new PlayerBody(newPos, FillColor));
+				bodies.AddFirst(new PlayerBody(newPos, color));
 				growLength--;
 			}
 

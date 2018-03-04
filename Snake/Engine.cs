@@ -54,7 +54,7 @@ namespace Snake
 				// Add player
 				var player = new Player(i + 1, board.GetRandomFreePosition(), playerColors[i]);
 				players.Add(player);
-				board.SetTile(player.Head, player);
+				//board.SetTile(player.Head, player);
 			}
 		}
 

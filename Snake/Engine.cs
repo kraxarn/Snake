@@ -123,12 +123,10 @@ namespace Snake
 				// Check who had the highest
 				foreach (var player in players)
 				{
-					if (player.Score > highestScore)
-					{
-						highestScore  = player.Score;
-						highestPlayer = index;
-						index++;
-					}
+					if (player.Score <= highestScore) continue;
+					highestScore  = player.Score;
+					highestPlayer = index;
+					index++;
 				}
 
 				// Show message

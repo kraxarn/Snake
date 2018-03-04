@@ -65,6 +65,12 @@ namespace Snake
 			private set => bodies.First.Value.Position = value;
 		}
 
+		public Vector2 Tail
+		{
+			get => bodies.Last.Value.Position;
+			private set => bodies.Last.Value.Position = value;
+		}
+
 		public int GrowLength
 		{
 			set => growLength = value;

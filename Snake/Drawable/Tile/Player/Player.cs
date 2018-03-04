@@ -56,14 +56,14 @@ namespace Snake
 			
 			if (growLength <= 0)
 			{
-				// If we should grow, just swap tail to head
+				// If we shouldn't grow, swap tail to head
 				board.SwapTiles(Tail, newPos);
 				// Update head
 				SetHeadFromTail();
 			}
 			else
 			{
-				// If we should grow, just create new body
+				// If we should grow, create new body
 				bodies.AddFirst(new PlayerBody(newPos, color));
 				board.SetTile(newPos, HeadTile);
 				growLength--;

@@ -13,5 +13,11 @@ namespace Snake
 			// Set position
 			Position = position;
 		}
+
+		public override bool Collide(Player player)
+		{
+			player.Die();
+			return base.Collide(player);
+		}
 	}
 }

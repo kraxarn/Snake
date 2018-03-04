@@ -51,8 +51,19 @@ namespace Snake
 				Die();
 				return;
 			}
-			// Switch current position with new one
-			board.SwapTiles(Tail, newPos);
+			
+			if (growLength <= 0)
+			{
+				// If we should grow, just swap tail to head
+				board.SwapTiles(Tail, newPos);
+			}
+			else
+			{
+				// If we should grow, just create new body
+				bodies.AddFirst(new PlayerBody(newPos, FillColor));
+				growLength--;
+			}
+
 			// Update to new position
 			Head = newPos;
 		}

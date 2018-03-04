@@ -52,7 +52,7 @@ namespace Snake
 				// Add score
 				scores.Add(new Text($"P{i + 1}: 0", "Consolas", 12, new Point(8, 8 + i * 16), playerColors[i]));
 				// Add player
-				var player = new Player(i + 1, board.GetRandomPosition(), playerColors[i]);
+				var player = new Player(i + 1, board.GetRandomFreePosition(), playerColors[i]);
 				players.Add(player);
 				board.SetTile(player.GetPosition(), player);
 			}

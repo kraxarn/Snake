@@ -52,7 +52,7 @@ namespace Snake
 				return;
 			}
 			// Switch current position with new one
-			board.SwapTiles(Head, newPos);
+			board.SwapTiles(Tail, newPos);
 			// Update to new position
 			Head = newPos;
 		}

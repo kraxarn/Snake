@@ -80,7 +80,15 @@ namespace Snake
 			HeadPosition = newPos;
 		}
 
-		public void Die() => isDead = true;
+		public void Die()
+		{
+			// Set player as dead
+			isDead = true;
+
+			// Change to grey color
+			foreach (var body in bodies)
+				body.FillColor = Color.FromArgb(96, 125, 139);
+		}
 
 		public Vector2 HeadPosition
 		{

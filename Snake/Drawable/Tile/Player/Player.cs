@@ -24,7 +24,6 @@ namespace Snake
 			keybinding = new Keybinding(num);
 			isDead = false;
 			this.color = color;
-			currentDirection = (Direction) new Random().Next(3);
 
 			// We start as 3 blocks
 			growLength = 2;
@@ -33,6 +32,9 @@ namespace Snake
 			bodies = new LinkedList<PlayerBody>();
 			// Add head
 			bodies.AddFirst(new PlayerBody(position, color));
+
+			// Set direction
+			currentDirection = GetBestDirection();
 		}
 
 		private void SetDirection(Direction direction) => currentDirection = direction;
@@ -143,6 +145,24 @@ namespace Snake
 				default:
 					throw new InvalidOperationException("Invalid direction: Player.GetNewPosition");
 			}
+		}
+
+		private Direction GetBestDirection()
+		{
+			var x = HeadPosition.X;
+			var y = HeadPosition.Y;
+
+			if (x < 4)
+				return Direction.Right;
+			if (x > 28)
+				return Direction.Left;
+			if (y < 4)
+				return Direction.Down;
+			if (y > 12)
+				return Direction.Up;
+
+			// If it doesn't matter, return random
+			return (Direction)new Random().Next(3);
 		}
 
 		public string GetDebugString() => $"Direction: {currentDirection}, Dead: {isDead}";

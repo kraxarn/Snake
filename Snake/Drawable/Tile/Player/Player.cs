@@ -48,7 +48,7 @@ namespace Snake
 			// Get new position
 			var newPos = GetNewPosition();
 			// Die if we hit the edge
-			if (!board.IsInBounds(Head))
+			if (!board.IsInBounds(HeadPosition))
 			{
 				Die();
 				return;
@@ -57,7 +57,7 @@ namespace Snake
 			if (growLength <= 0)
 			{
 				// If we shouldn't grow, swap tail to head
-				board.SwapTiles(Tail, newPos);
+				board.SwapTiles(TailPosition, newPos);
 				// Update head
 				SetHeadFromTail();
 			}
@@ -70,18 +70,18 @@ namespace Snake
 			}
 
 			// Update to new position
-			Head = newPos;
+			HeadPosition = newPos;
 		}
 
 		public void Die() => isDead = true;
 
-		public Vector2 Head
+		public Vector2 HeadPosition
 		{
 			get => bodies.First.Value.Position;
 			private set => bodies.First.Value.Position = value;
 		}
 
-		public Vector2 Tail => bodies.Last.Value.Position;
+		public Vector2 TailPosition => bodies.Last.Value.Position;
 
 		public Tile HeadTile => bodies.First.Value;
 
@@ -109,8 +109,8 @@ namespace Snake
 		private Vector2 GetNewPosition()
 		{
 			// Position shortcuts
-			var x = Head.X;
-			var y = Head.Y;
+			var x = HeadPosition.X;
+			var y = HeadPosition.Y;
 
 			// Get where we are supposed to go
 			switch (currentDirection)

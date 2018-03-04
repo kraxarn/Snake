@@ -11,7 +11,7 @@ namespace Snake
 
 		public FormMain()
 		{
-			Text   = "Snake";
+			Text   = @"Snake";
 			Width  = 1032;	// 32 * 32 (+ 8)
 			Height = 543;	// 16 * 32 (+ 31)
 

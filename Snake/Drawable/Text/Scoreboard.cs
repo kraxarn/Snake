@@ -20,13 +20,13 @@ namespace Snake
 		public void ChangeScore(int amount)
 		{
 			score += amount;
-			text.Label = text.Label.Substring(0, text.Label.IndexOf(' ')) + $"{score}";
+			text.Label = text.Label.Substring(0, text.Label.IndexOf(' ')) + $" {score}";
 		}
 
 		public void SetScore(int amount)
 		{
 			score = amount;
-			text.Label = text.Label.Substring(0, text.Label.IndexOf(' ')) + $"{score}";
+			text.Label = text.Label.Substring(0, text.Label.IndexOf(' ')) + $" {score}";
 		}
 	}
 }

@@ -14,7 +14,7 @@ namespace Snake
 		private bool isDead;
 		private readonly LinkedList<PlayerBody> bodies;
 		private int growLength;
-		private Color color;
+		private readonly Color color;
 		private int score;
 
 		public int Score => score;

@@ -108,12 +108,6 @@ namespace Snake
 
 		public Tile HeadTile => bodies.First.Value;
 
-		private void SetNewHead(PlayerBody body)
-		{
-			bodies.Remove(bodies.Single(b => b.Equals(body)));
-			bodies.AddFirst(body);
-		}
-
 		private void SetHeadFromTail()
 		{
 			// Save new head temporarily
@@ -165,7 +159,5 @@ namespace Snake
 			// If it doesn't matter, return random
 			return (Direction)new Random().Next(3);
 		}
-
-		public string GetDebugString() => $"Direction: {currentDirection}, Dead: {isDead}";
 	}
 }

@@ -1,34 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Dynamic;
 using System.Windows.Forms;
 
 namespace Snake
 {
 	public class Player : Tile
 	{
-		//private Vector2 position;
 		public enum Direction { Up, Right, Down, Left }
 		private Direction currentDirection;
 		private readonly Keybinding keybinding;
 		private bool isDead;
-		private readonly Random rng;
-
-		private LinkedList<PlayerBody> bodies;
+		private readonly LinkedList<PlayerBody> bodies;
 
 		public Player(int num, Vector2 position, Color color)
 		{
-			currentDirection = (Direction) new Random().Next(3);
 			keybinding = new Keybinding(num);
 			isDead = false;
 			SetColor(color);
-			rng = new Random();
-			currentDirection = (Direction) rng.Next(3);
+			currentDirection = (Direction) new Random().Next(3);
 
 			// Create list of bodies
 			bodies = new LinkedList<PlayerBody>();
-
 			// Add head
 			bodies.AddFirst(new PlayerBody(position, color));
 		}
@@ -46,7 +39,7 @@ namespace Snake
 			if (pressed != Keybinding.Input.None)
 				SetDirection(Keybinding.ToDirection(pressed));
 
-			// Get positions
+			// Get new position
 			var newPos = GetNewPosition();
 			// Die if we hit the edge
 			if (!board.IsInBounds(Position))
@@ -65,14 +58,16 @@ namespace Snake
 		public Vector2 Position
 		{
 			get => bodies.First.Value.Position;
-			set => bodies.First.Value.Position = value;
+			private set => bodies.First.Value.Position = value;
 		}
 
 		private Vector2 GetNewPosition()
 		{
+			// Position shortcuts
 			var x = Position.X;
 			var y = Position.Y;
 
+			// Get where we are supposed to go
 			switch (currentDirection)
 			{
 				case Direction.Up:

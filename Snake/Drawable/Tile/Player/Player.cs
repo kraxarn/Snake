@@ -8,14 +8,28 @@ namespace Snake
 {
 	public class Player
 	{
-		public enum Direction { Up, Right, Down, Left }
+		public  enum Direction { Up, Right, Down, Left }
 		private Direction currentDirection;
-		private readonly Keybinding keybinding;
-		private bool isDead;
+		
 		private readonly LinkedList<PlayerBody> bodies;
-		private int growLength;
-		private readonly Color color;
-		public int Score { get; private set; }
+
+		private readonly Keybinding keybinding;
+		private readonly Color      color;
+
+		private bool isDead;
+		private int  growLength;
+		public  int  Score { get; private set; }
+
+		public Vector2 HeadPosition
+		{
+			get => bodies.First.Value.Position;
+			private set => bodies.First.Value.Position = value;
+		}
+
+		public int GrowLength
+		{
+			set => growLength = value;
+		}
 
 		public Player(int num, Vector2 position, Color color)
 		{
@@ -90,12 +104,6 @@ namespace Snake
 				body.FillColor = Color.FromArgb(96, 125, 139);
 		}
 
-		public Vector2 HeadPosition
-		{
-			get => bodies.First.Value.Position;
-			private set => bodies.First.Value.Position = value;
-		}
-
 		public Vector2 TailPosition => bodies.Last.Value.Position;
 
 		public Tile HeadTile => bodies.First.Value;
@@ -114,11 +122,6 @@ namespace Snake
 			bodies.RemoveLast();
 			// Readd it as head
 			bodies.AddFirst(temp);
-		}
-
-		public int GrowLength
-		{
-			set => growLength = value;
 		}
 
 		public void AddScore(int amount) => Score += amount;

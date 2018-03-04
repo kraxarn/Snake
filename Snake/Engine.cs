@@ -8,12 +8,12 @@ namespace Snake
 {
 	public class Engine
 	{
-		private readonly FormMain     form;
-		private readonly Timer        timer;
-		private readonly ISet<Text>   scores;
-		private readonly Board        board;
-		private readonly ISet<Player> players;
-		private readonly Random       rng;
+		private readonly FormMain         form;
+		private readonly Timer            timer;
+		private readonly List<Scoreboard> scores;
+		private readonly Board            board;
+		private readonly ISet<Player>     players;
+		private readonly Random           rng;
 
 		private bool skipFrame, paused;
 
@@ -28,7 +28,7 @@ namespace Snake
 			// Variables
 			form    = new FormMain();
 			timer   = new Timer();
-			scores  = new HashSet<Text>();
+			scores  = new List<Scoreboard>();
 			players = new HashSet<Player>();
 			board   = new Board(new Vector2(32, 16));
 			rng     = new Random();
@@ -51,7 +51,7 @@ namespace Snake
 			for (var i = 0; i < numPlayers; i++)
 			{
 				// Add score
-				scores.Add(new Text($"P{i + 1}: 0", "Consolas", 12, new Point(8, 8 + i * 16), playerColors[i]));
+				scores.Add(new Scoreboard(i + 1, playerColors[i], new Point(8, 8 + i * 16)));
 				// Add player
 				var player = new Player(i + 1, board.GetRandomFreePosition(), playerColors[i]);
 				players.Add(player);
@@ -90,7 +90,10 @@ namespace Snake
 			}
 			skipFrame = true;
 
-			scores.First().Label = players.First().GetDebugString();
+			// Update score for every player
+			var i = 0;
+			foreach (var player in players)
+				scores[i++].SetScore(player.Score);
 
 			// Update key presses for players
 			foreach (var player in players)

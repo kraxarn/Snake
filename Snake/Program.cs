@@ -19,13 +19,6 @@ namespace Snake
 
 			var engine = new Engine(numPlayers);
 			engine.Run();
-
-			// Default WinForm stuff
-			/*
-			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new FormMain());
-			*/
 		}
 	}
 }

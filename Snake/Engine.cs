@@ -94,20 +94,21 @@ namespace Snake
 			}
 			skipFrame = true;
 
-			// Update score for every player
+			// Iterator for current player and if all are dead
 			var i = 0;
-			foreach (var player in players)
-				scores[i++].SetScore(player.Score);
-
-			// Update key presses for players
-			foreach (var player in players)
-				player.Update(form.KeyData, board);
-
-			// See if all players are dead
 			var allDead = true;
 			foreach (var player in players)
+			{
+				// Update score
+				scores[i++].SetScore(player.Score);
+
+				// Update key presses
+				player.Update(form.KeyData, board);
+
+				// Check if player is dead
 				if (!player.IsDead)
 					allDead = false;
+			}
 
 			if (allDead)
 			{

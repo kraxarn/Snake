@@ -30,9 +30,6 @@ namespace Snake
 			// Set icon
 			var res = new ComponentResourceManager(typeof(FormMain));
 			Icon = (Icon) res.GetObject("$this.Icon");
-
-			// Default WinForm stuff
-			//InitializeComponent();
 		}
 
 		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

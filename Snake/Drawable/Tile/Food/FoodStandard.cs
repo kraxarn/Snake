@@ -2,11 +2,11 @@
 {
 	public class FoodStandard : Food
 	{
-		public override bool Collide(Player player)
+		public override Collide.Mode Collide(Player player)
 		{
 			player.GrowLength = 1;
 			player.AddScore(1);
-			return true;
+			return Snake.Collide.Mode.Continue;
 		}
 	}
 }

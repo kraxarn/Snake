@@ -2,6 +2,6 @@
 {
 	public interface ICollidable
 	{
-		bool Collide(Player player);
+		Collide.Mode Collide(Player player);
 	}
 }

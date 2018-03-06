@@ -71,7 +71,7 @@ namespace Snake
 			}
 
 			// Check if next tile has collison
-			if (board.GetTile(newPos).Collide(this))
+			if (board.GetTile(newPos).Collide(this) != Collide.Mode.None)
 				board.SetTile(newPos, new Tile(newPos, board.GetRandomBackground()));
 			
 			if (growLength <= 0)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Snake
@@ -170,5 +171,7 @@ namespace Snake
 			// Add food to board
 			board.SetTile(board.GetRandomFreePosition(), food);
 		}
+
+		public void SpeedUpRandomPlayer() => players.ElementAt(rng.Next(players.Count)).SpeedUp();
 	}
 }

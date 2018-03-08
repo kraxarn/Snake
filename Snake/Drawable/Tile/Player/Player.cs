@@ -158,5 +158,10 @@ namespace Snake
 			// If it doesn't matter, return random
 			return (Direction)new Random().Next(3);
 		}
+
+		public void SpeedUp()
+		{
+			throw new NotImplementedException("Player.SpeedUp");
+		}
 	}
 }

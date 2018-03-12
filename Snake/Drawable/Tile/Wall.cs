@@ -6,10 +6,10 @@ namespace Snake
 	{
 		public Wall() => SetColor(Color.FromArgb(255, 193, 7));
 
-		public override bool Collide(Player player)
+		public override Collide.Mode Collide(Player player)
 		{
 			player.Die();
-			return true;
+			return Snake.Collide.Mode.Stop;
 		}
 	}
 }

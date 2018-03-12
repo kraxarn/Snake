@@ -71,7 +71,7 @@ namespace Snake
 			}
 
 			// Check if next tile has collison
-			if (board.GetTile(newPos).Collide(this))
+			if (board.GetTile(newPos).Collide(this) != Collide.Mode.None)
 				board.SetTile(newPos, new Tile(newPos, board.GetRandomBackground()));
 			
 			if (growLength <= 0)
@@ -157,6 +157,11 @@ namespace Snake
 
 			// If it doesn't matter, return random
 			return (Direction)new Random().Next(3);
+		}
+
+		public void SpeedUp()
+		{
+			throw new NotImplementedException("Player.SpeedUp");
 		}
 	}
 }

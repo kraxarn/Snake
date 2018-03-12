@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Snake
@@ -94,20 +95,21 @@ namespace Snake
 			}
 			skipFrame = true;
 
-			// Update score for every player
+			// Iterator for current player and if all are dead
 			var i = 0;
-			foreach (var player in players)
-				scores[i++].SetScore(player.Score);
-
-			// Update key presses for players
-			foreach (var player in players)
-				player.Update(form.KeyData, board);
-
-			// See if all players are dead
 			var allDead = true;
 			foreach (var player in players)
+			{
+				// Update score
+				scores[i++].SetScore(player.Score);
+
+				// Update key presses
+				player.Update(form.KeyData, board);
+
+				// Check if player is dead
 				if (!player.IsDead)
 					allDead = false;
+			}
 
 			if (allDead)
 			{
@@ -169,5 +171,7 @@ namespace Snake
 			// Add food to board
 			board.SetTile(board.GetRandomFreePosition(), food);
 		}
+
+		public void SpeedUpRandomPlayer() => players.ElementAt(rng.Next(players.Count)).SpeedUp();
 	}
 }

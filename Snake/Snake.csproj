@@ -89,6 +89,7 @@
     <Compile Include="Drawable\Tile\Food\FoodExtra.cs" />
     <Compile Include="Drawable\Tile\Food\FoodSpeed.cs" />
     <Compile Include="Drawable\Tile\Food\FoodStandard.cs" />
+    <Compile Include="Helper\Collide.cs" />
     <Compile Include="Interface\ICollidable.cs" />
     <Compile Include="Helper\Keybinding.cs" />
     <Compile Include="Drawable\Tile\Player\Player.cs" />

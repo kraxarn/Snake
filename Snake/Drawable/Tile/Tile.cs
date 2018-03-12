@@ -28,7 +28,7 @@ namespace Snake
 			g.FillRectangle(drawer, shape);
 		}
 
-		public virtual bool Collide(Player player) => false;
+		public virtual Collide.Mode Collide(Player player) => Snake.Collide.Mode.None;
 
 		protected void SetColor(Color color) => drawer.Color = color;
 

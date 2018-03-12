@@ -14,10 +14,10 @@ namespace Snake
 			Position = position;
 		}
 
-		public override bool Collide(Player player)
+		public override Collide.Mode Collide(Player player)
 		{
 			player.Die();
-			return base.Collide(player);
+			return Snake.Collide.Mode.Stop;
 		}
 	}
 }

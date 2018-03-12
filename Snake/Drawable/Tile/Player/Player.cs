@@ -30,6 +30,10 @@ namespace Snake
 			set => growLength = value;
 		}
 
+		public Vector2 TailPosition => bodies.Last.Value.Position;
+
+		public Tile HeadTile => bodies.First.Value;
+
 		public Player(int num, Vector2 position, Color color)
 		{
 			keybinding = new Keybinding(num);
@@ -102,10 +106,6 @@ namespace Snake
 			foreach (var body in bodies)
 				body.FillColor = Color.FromArgb(96, 125, 139);
 		}
-
-		public Vector2 TailPosition => bodies.Last.Value.Position;
-
-		public Tile HeadTile => bodies.First.Value;
 
 		private void SetHeadFromTail()
 		{

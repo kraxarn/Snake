@@ -7,8 +7,9 @@ namespace Snake
 		private readonly Font drawFont;
 		private readonly SolidBrush drawer;
 
-		public string Label;
 		private Point pos;
+
+		public string Label;
 
 		public Text(string label, string font, int size, Point pos, Color color)
 		{
@@ -19,11 +20,6 @@ namespace Snake
 			this.pos = pos;
 		}
 
-		public Text(string label, int x, int y) : this(label, "Consolas", 12, new Point(x, y), Color.White) { }
-
-		public void Draw(Graphics g, int x = 0, int y = 0)
-		{
-			g.DrawString(Label, drawFont, drawer, pos.X, pos.Y);
-		}
+		public void Draw(Graphics g, int x = 0, int y = 0) => g.DrawString(Label, drawFont, drawer, pos.X, pos.Y);
 	}
 }

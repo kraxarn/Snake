@@ -104,7 +104,7 @@ namespace Snake
 				scores[i++].SetScore(player.Score);
 
 				// Update key presses
-				player.Update(form.PressedKeys, board);
+				player.Update(form.AllKeys, board);
 
 				// Check if player is dead
 				if (!player.IsDead)
@@ -139,6 +139,7 @@ namespace Snake
 			}
 
 			form.Refresh();
+			form.ClearAllKeys();
 		}
 
 		private void Draw(object sender, PaintEventArgs paintEventArgs)

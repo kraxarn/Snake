@@ -8,6 +8,7 @@ namespace Snake
 	public sealed partial class FormMain : Form
 	{
 		public readonly HashSet<Keys> PressedKeys;
+		public readonly HashSet<Keys> AllKeys;
 
 		public FormMain()
 		{
@@ -31,6 +32,7 @@ namespace Snake
 
 			// Create set with pressed keys
 			PressedKeys = new HashSet<Keys>();
+			AllKeys     = new HashSet<Keys>();
 		}
 
 		protected override void OnKeyUp(KeyEventArgs e)
@@ -42,7 +44,10 @@ namespace Snake
 		protected override void OnKeyDown(KeyEventArgs e)
 		{
 			PressedKeys.Add(e.KeyData);
+			AllKeys.Add(e.KeyData);
 			base.OnKeyDown(e);
 		}
+
+		public void ClearAllKeys() => AllKeys.Clear();
 	}
 }

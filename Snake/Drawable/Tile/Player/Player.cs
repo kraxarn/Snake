@@ -54,16 +54,19 @@ namespace Snake
 
 		private void SetDirection(Direction direction) => currentDirection = direction;
 
-		public void Update(Keys key, Board board)
+		public void Update(ISet<Keys> keys, Board board)
 		{
 			// Don't move or update if we died
 			if (IsDead)
 				return;
 			
 			// Update current direction
-			var pressed = keybinding.GetPressedDirection(key);
-			if (pressed != Keybinding.Input.None)
-				SetDirection(Keybinding.ToDirection(pressed));
+			foreach (var key in keys)
+			{
+				var pressed = keybinding.GetPressedDirection(key);
+				if (pressed != Keybinding.Input.None)
+					SetDirection(Keybinding.ToDirection(pressed));
+			}
 
 			// Get new position
 			var newPos = GetNewPosition();

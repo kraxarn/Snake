@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -7,9 +8,6 @@ namespace Snake
 {
 	public sealed partial class FormMain : Form
 	{
-		public Keys KeyData { get; private set; }
-		public Keys CurrentKeyDown { get; private set; }
-
 		public readonly HashSet<Keys> PressedKeys;
 
 		public FormMain()
@@ -38,22 +36,14 @@ namespace Snake
 			PressedKeys = new HashSet<Keys>();
 		}
 
-		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-		{
-			KeyData = keyData;
-			return base.ProcessCmdKey(ref msg, keyData);
-		}
-
 		protected override void OnKeyUp(KeyEventArgs e)
 		{
-			CurrentKeyDown = Keys.None;
 			PressedKeys.Remove(e.KeyData);
 			base.OnKeyUp(e);
 		}
 
 		protected override void OnKeyDown(KeyEventArgs e)
 		{
-			CurrentKeyDown = e.KeyData;
 			PressedKeys.Add(e.KeyData);
 			base.OnKeyDown(e);
 		}

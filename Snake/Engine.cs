@@ -78,7 +78,7 @@ namespace Snake
 		private void Update(object sender, EventArgs eventArgs)
 		{
 			// Check if paused
-			if (form.CurrentKeyDown == Keys.Escape)
+			if (form.PressedKeys.Contains(Keys.Escape))
 				paused = !paused;
 			if (paused)
 				return;
@@ -104,7 +104,7 @@ namespace Snake
 				scores[i++].SetScore(player.Score);
 
 				// Update key presses
-				player.Update(form.KeyData, board);
+				player.Update(form.PressedKeys, board);
 
 				// Check if player is dead
 				if (!player.IsDead)

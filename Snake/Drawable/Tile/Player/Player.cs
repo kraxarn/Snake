@@ -54,7 +54,7 @@ namespace Snake
 
 		private void SetDirection(Direction direction) => currentDirection = direction;
 
-		public void Update(ISet<Keys> keys, Board board)
+		public void Update(IEnumerable<Keys> keys, Board board)
 		{
 			// Don't move or update if we died
 			if (IsDead)

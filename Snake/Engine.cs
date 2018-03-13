@@ -14,6 +14,7 @@ namespace Snake
 		private readonly Board            board;
 		private readonly ISet<Player>     players;
 		private readonly Random           rng;
+		private readonly Text             textPaused;
 
 		private bool skipFrame, paused;
 
@@ -26,12 +27,13 @@ namespace Snake
 		public Engine(int numPlayers)
 		{
 			// Variables
-			form    = new FormMain();
-			timer   = new Timer();
-			scores  = new List<Scoreboard>();
-			players = new HashSet<Player>();
-			board   = new Board(new Vector2(32, 16));
-			rng     = new Random();
+			form       = new FormMain();
+			timer      = new Timer();
+			scores     = new List<Scoreboard>();
+			players    = new HashSet<Player>();
+			board      = new Board(new Vector2(32, 16));
+			rng        = new Random();
+			textPaused = new Text("Paused...", "Consolas", 32, new Point(form.Width / 2, form.Height / 2), Color.White);
 
 			skipFrame = false;
 			paused    = false;
@@ -81,7 +83,11 @@ namespace Snake
 			if (form.PressedKeys.Contains(Keys.Escape))
 				paused = !paused;
 			if (paused)
+			{
+				form.Refresh();
+				form.ClearAllKeys();
 				return;
+			}
 
 			// See if we should add some food
 			if (rng.Next(100) <= 3)
@@ -150,6 +156,10 @@ namespace Snake
 			// Draw scores
 			foreach (var score in scores)
 				score.Draw(paintEventArgs.Graphics);
+
+			// Draw pause text if paused
+			if (paused)
+				textPaused.Draw(paintEventArgs.Graphics);
 		}
 
 		private void AddRandomFood()

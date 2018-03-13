@@ -45,8 +45,8 @@ namespace Snake
 
 		public Color GetRandomBackground() => Color.FromArgb(rng.Next(67, 102), rng.Next(160, 187), rng.Next(71, 106));
 
-		public Vector2 GetRandomPosition() => new Vector2(rng.Next(tiles.GetLength(0)), rng.Next(tiles.GetLength(1)));
-		
+		public Vector2 GetRandomPosition() => new Vector2(rng.Next(tiles.GetLength(0) - 2) + 1, rng.Next(tiles.GetLength(1) - 2) + 1);
+
 		public Vector2 GetRandomFreePosition()
 		{
 			// Starting position

@@ -64,6 +64,9 @@ namespace Snake
 			var walls = rng.Next(3, 6);
 			for (var i = 0; i < walls; i++)
 				board.SetTile(board.GetRandomFreePosition(), new Wall());
+
+			// Center pause text
+			textPaused.CenterLabel();
 		}
 
 		public void Run()

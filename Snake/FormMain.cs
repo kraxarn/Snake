@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,6 +9,8 @@ namespace Snake
 	{
 		public Keys KeyData { get; private set; }
 		public Keys CurrentKeyDown { get; private set; }
+
+		public readonly HashSet<Keys> PressedKeys;
 
 		public FormMain()
 		{
@@ -30,6 +33,9 @@ namespace Snake
 			// Set icon
 			var res = new ComponentResourceManager(typeof(FormMain));
 			Icon = (Icon) res.GetObject("$this.Icon");
+
+			// Create set with pressed keys
+			PressedKeys = new HashSet<Keys>();
 		}
 
 		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -41,12 +47,14 @@ namespace Snake
 		protected override void OnKeyUp(KeyEventArgs e)
 		{
 			CurrentKeyDown = Keys.None;
+			PressedKeys.Remove(e.KeyData);
 			base.OnKeyUp(e);
 		}
 
 		protected override void OnKeyDown(KeyEventArgs e)
 		{
 			CurrentKeyDown = e.KeyData;
+			PressedKeys.Add(e.KeyData);
 			base.OnKeyDown(e);
 		}
 	}

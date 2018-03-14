@@ -92,8 +92,12 @@ namespace Snake
 				return;
 			}
 
-			// See if we should add some food
-			if (rng.Next(100) <= 3)
+			// See if we should randomly add some food
+			if (rng.Next(100) <= 2)
+				AddRandomFood();
+
+			// If there is no food anywhere, spawn one
+			if (!board.ContainsFood())
 				AddRandomFood();
 
 			// See if we should skip the current frame

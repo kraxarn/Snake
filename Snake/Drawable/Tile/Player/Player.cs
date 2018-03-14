@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Snake
@@ -167,6 +168,8 @@ namespace Snake
 			// If it doesn't matter, return random
 			return (Direction)new Random().Next(3);
 		}
+
+		public IEnumerable<Vector2> GetBodyPositions() => from body in bodies select body.Position;
 
 		public void SpeedUp()
 		{

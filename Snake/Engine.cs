@@ -228,5 +228,26 @@ namespace Snake
 				speedUpPlayers.Remove(random);
 			});
 		}
+
+		public bool TryGetPlayerAtPosition(Vector2 pos, out Player player)
+		{
+			// Check if tile is player
+			if (board[pos].GetType() == typeof(PlayerBody))
+			{
+				// Loop through players and see if we can find it
+				foreach (var p in players)
+				{
+					if (p.GetBodyPositions().Contains(pos))
+					{
+						player = p;
+						return true;
+					}
+				}
+			}
+
+			// It wasn't found, return default and false
+			player = default(Player);
+			return false;
+		}
 	}
 }

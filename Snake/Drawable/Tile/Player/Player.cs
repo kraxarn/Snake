@@ -56,7 +56,7 @@ namespace Snake
 			currentDirection = GetBestDirection();
 
 			// Create scoreboard
-			score = new Scoreboard(num, color, new Point(8, 8 + num * 16));
+			score = new Scoreboard(num, color, new Point(8, 8 + (num - 1) * 16));
 		}
 
 		private void SetDirection(Direction direction) => currentDirection = direction;

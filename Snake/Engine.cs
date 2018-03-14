@@ -13,7 +13,7 @@ namespace Snake
 		private readonly Timer            timer;
 		private readonly List<Scoreboard> scores;
 		private readonly Board            board;
-		private readonly ISet<Player>     players;
+		private readonly List<Player>     players;
 		private readonly Random           rng;
 		private readonly Text             textPaused;
 		private readonly ISet<Player>     speedUpPlayers;
@@ -39,7 +39,7 @@ namespace Snake
 			form       = new FormMain();
 			timer      = new Timer();
 			scores     = new List<Scoreboard>();
-			players    = new HashSet<Player>();
+			players    = new List<Player>();
 			board      = new Board(new Vector2(32, 16));
 			rng        = new Random();
 			textPaused = new Text("Paused...", "Consolas", 32, new Point(form.Width / 2, form.Height / 2), Color.White);
@@ -259,26 +259,6 @@ namespace Snake
 			scores.ElementAt(player).ChangeScore(score);
 		}
 
-		public void ChangeScoreForPlayer(Player player, int score)
-		{
-			// Get index of player
-			if (TryGetIndexOfPlayer(player, out var index))
-				ChangeScoreForPlayer(index, score);
-			else
-				throw new InvalidOperationException($"No such player: {player}");
-		}
-
-		private bool TryGetIndexOfPlayer(Player player, out int index)
-		{
-			index = 0;
-			foreach (var p in players)
-			{
-				if (p.Equals(player))
-					return true;
-				index++;
-			}
-
-			return false;
-		}
+		public void ChangeScoreForPlayer(Player player, int score) => ChangeScoreForPlayer(players.IndexOf(player), score);
 	}
 }

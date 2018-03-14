@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 
 namespace Snake
 {
@@ -61,5 +62,7 @@ namespace Snake
 		}
 
 		public bool IsInBounds(Vector2 position) => position.X < tiles.GetLength(0) - 1 && position.Y < tiles.GetLength(1) - 1 && position.X > 0 && position.Y > 0;
+
+		public bool ContainsFood() => tiles.OfType<Food>().Any();
 	}
 }

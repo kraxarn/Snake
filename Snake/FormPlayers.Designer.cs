@@ -173,7 +173,7 @@
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(86, 32);
 			this.label11.TabIndex = 13;
-			this.label11.Text = "Food, danger!";
+			this.label11.Text = "Wall, danger!";
 			this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// label12

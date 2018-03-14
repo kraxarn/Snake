@@ -189,10 +189,5 @@ namespace Snake
 		public void ChangeScore(int amount) => score.ChangeScore(amount);
 
 		public void DrawScore(Graphics g) => score.Draw(g);
-
-		public void SpeedUp()
-		{
-			throw new NotImplementedException("Player.SpeedUp");
-		}
 	}
 }

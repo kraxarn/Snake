@@ -117,7 +117,7 @@ namespace Snake
 			{
 				// Update sped up players before we return
 				foreach (var player in speedUpPlayers)
-					player.Update(form.AllKeys, board);
+					player.Update(form.AllKeys, board, this);
 
 				// Update form
 				form.Refresh();
@@ -137,7 +137,7 @@ namespace Snake
 				scores[i++].SetScore(player.Score);
 
 				// Update key presses
-				player.Update(form.AllKeys, board);
+				player.Update(form.AllKeys, board, this);
 
 				// Check if player is dead
 				if (!player.IsDead)
@@ -247,6 +247,37 @@ namespace Snake
 
 			// It wasn't found, return default and false
 			player = default(Player);
+			return false;
+		}
+
+		public void ChangeScoreForPlayer(int player, int score)
+		{
+			// See if player is a valid position
+			if (player < 0 || player >= players.Count)
+				return;
+			// Change the score there
+			scores.ElementAt(player).ChangeScore(score);
+		}
+
+		public void ChangeScoreForPlayer(Player player, int score)
+		{
+			// Get index of player
+			if (TryGetIndexOfPlayer(player, out var index))
+				ChangeScoreForPlayer(index, score);
+			else
+				throw new InvalidOperationException($"No such player: {player}");
+		}
+
+		private bool TryGetIndexOfPlayer(Player player, out int index)
+		{
+			index = 0;
+			foreach (var p in players)
+			{
+				if (p.Equals(player))
+					return true;
+				index++;
+			}
+
 			return false;
 		}
 	}

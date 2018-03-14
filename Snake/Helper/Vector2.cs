@@ -23,5 +23,13 @@ namespace Snake
 		{
 			return $"{X},{Y}";
 		}
+
+		public override bool Equals(object obj)
+		{
+			if (obj == null || obj.GetType() != typeof(Vector2))
+				return false;
+			var pos = (Vector2) obj;
+			return pos.X == X && pos.Y == Y;
+		}
 	}
 }

@@ -55,7 +55,7 @@ namespace Snake
 
 		private void SetDirection(Direction direction) => currentDirection = direction;
 
-		public void Update(IEnumerable<Keys> keys, Board board)
+		public void Update(IEnumerable<Keys> keys, Board board, Engine engine)
 		{
 			// Don't move or update if we died
 			if (IsDead)
@@ -85,7 +85,14 @@ namespace Snake
 
 			// Check if we should stop
 			if (board[newPos].Collide(this) == Collide.Mode.Stop)
-				return;
+			{
+				// See if we hit another snake
+				if (board[newPos].GetType() != typeof(PlayerBody))
+					return;
+
+				if (engine.TryGetPlayerAtPosition(newPos, out var hitPlayer))
+					engine.ChangeScoreForPlayer(hitPlayer, 5);
+			}
 
 			// Else, continue as normal
 			if (growLength <= 0)

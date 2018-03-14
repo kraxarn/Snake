@@ -89,8 +89,12 @@ namespace Snake
 				// See if we hit another snake
 				if (board[newPos].GetType() != typeof(PlayerBody))
 					return;
-
-				if (engine.TryGetPlayerAtPosition(newPos, out var hitPlayer))
+				
+				// If we hit outselves, remove 5 points
+				// Otherwise, award the other snake with 5 points
+				if (bodies.Contains(board[newPos]))
+					engine.ChangeScoreForPlayer(this, -5);
+				else if (engine.TryGetPlayerAtPosition(newPos, out var hitPlayer))
 					engine.ChangeScoreForPlayer(hitPlayer, 5);
 			}
 

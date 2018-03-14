@@ -110,6 +110,9 @@ namespace Snake
 				// Update sped up players before we return
 				foreach (var player in speedUpPlayers)
 					player.Update(form.AllKeys, board);
+
+				// Update form
+				form.Refresh();
 				
 				// Set to not skip next frame and return
 				skipFrame = false;

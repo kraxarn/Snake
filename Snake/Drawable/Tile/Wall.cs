@@ -4,7 +4,7 @@ namespace Snake
 {
 	public class Wall : Tile
 	{
-		public Wall() => SetColor(Color.FromArgb(255, 193, 7));
+		public Wall() => SetColor(Color.FromArgb(255, 152, 0));
 
 		public override Collide.Mode Collide(Player player)
 		{

@@ -21,9 +21,16 @@ namespace Snake
 		private bool skipFrame, paused;
 
 		/*
-		 * P1: Blue   (63,  81,  181)
-		 * P2: Red    (244, 67,  54)
-		 * P3: Orange (255, 152, 0)
+		 * Colors *
+		 *
+		 * Grass:	Green
+		 * Food:	Red
+		 * Wall:	Orange
+		 * Dead:	Grey
+		 *
+		 * Snake1:	Blue
+		 * Snake2:	Yellow
+		 * Snake3:	Purple
 		 */
 
 		public Engine(int numPlayers)
@@ -44,8 +51,8 @@ namespace Snake
 			var playerColors = new[]
 			{
 				Color.FromArgb(63,  81,  181),
-				Color.FromArgb(244, 67,  54),
-				Color.FromArgb(255, 152, 0)
+				Color.FromArgb(255, 235, 59),
+				Color.FromArgb(156, 39,  176)
 			};
 
 			// Fill board with tiles, "grass"

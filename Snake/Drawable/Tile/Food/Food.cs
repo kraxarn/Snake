@@ -6,7 +6,7 @@ namespace Snake
 	{
 		protected Food()
 		{
-			SetColor(Color.FromArgb(255, 87, 34));
+			SetColor(Color.FromArgb(244, 67, 54));
 		}
 	}
 }

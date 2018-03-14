@@ -5,7 +5,8 @@ namespace Snake
 	public class Scoreboard : IDrawable
 	{
 		private readonly Text text;
-		private int score;
+
+		public int Score { get; private set; }
 
 		public Scoreboard(int player, Color color, Point position)
 		{
@@ -19,14 +20,14 @@ namespace Snake
 
 		public void ChangeScore(int amount)
 		{
-			score += amount;
-			text.Label = text.Label.Substring(0, text.Label.IndexOf(' ')) + $" {score}";
+			Score += amount;
+			text.Label = text.Label.Substring(0, text.Label.IndexOf(' ')) + $" {Score}";
 		}
 
 		public void SetScore(int amount)
 		{
-			score = amount;
-			text.Label = text.Label.Substring(0, text.Label.IndexOf(' ')) + $" {score}";
+			Score = amount;
+			text.Label = text.Label.Substring(0, text.Label.IndexOf(' ')) + $" {Score}";
 		}
 	}
 }

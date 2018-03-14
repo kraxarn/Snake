@@ -11,7 +11,6 @@ namespace Snake
 	{
 		private readonly FormMain         form;
 		private readonly Timer            timer;
-		private readonly List<Scoreboard> scores;
 		private readonly Board            board;
 		private readonly List<Player>     players;
 		private readonly Random           rng;
@@ -38,7 +37,6 @@ namespace Snake
 			// Variables
 			form       = new FormMain();
 			timer      = new Timer();
-			scores     = new List<Scoreboard>();
 			players    = new List<Player>();
 			board      = new Board(new Vector2(32, 16));
 			rng        = new Random();
@@ -61,8 +59,6 @@ namespace Snake
 			// Add players
 			for (var i = 0; i < numPlayers; i++)
 			{
-				// Add score
-				scores.Add(new Scoreboard(i + 1, playerColors[i], new Point(8, 8 + i * 16)));
 				// Add player
 				var player = new Player(i + 1, board.GetRandomFreePosition(), playerColors[i]);
 				players.Add(player);
@@ -128,14 +124,10 @@ namespace Snake
 			}
 			skipFrame = true;
 
-			// Iterator for current player and if all are dead
-			var i = 0;
+			// If all are dead
 			var allDead = true;
 			foreach (var player in players)
 			{
-				// Update score
-				scores[i++].SetScore(player.Score);
-
 				// Update key presses
 				player.Update(form.AllKeys, board, this);
 
@@ -181,8 +173,8 @@ namespace Snake
 			board.Draw(paintEventArgs.Graphics);
 
 			// Draw scores
-			foreach (var score in scores)
-				score.Draw(paintEventArgs.Graphics);
+			foreach (var player in players)
+				player.DrawScore(paintEventArgs.Graphics);
 
 			// Draw pause text if paused
 			if (paused)
@@ -256,7 +248,7 @@ namespace Snake
 			if (player < 0 || player >= players.Count)
 				return;
 			// Change the score there
-			scores.ElementAt(player).ChangeScore(score);
+			players.ElementAt(player).ChangeScore(score);
 		}
 
 		public void ChangeScoreForPlayer(Player player, int score) => ChangeScoreForPlayer(players.IndexOf(player), score);

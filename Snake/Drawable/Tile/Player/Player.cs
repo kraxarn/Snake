@@ -15,10 +15,13 @@ namespace Snake
 
 		private readonly Keybinding keybinding;
 		private readonly Color      color;
+		private readonly Scoreboard score;
 
 		private int  growLength;
-		public  int  Score  { get; private set; }
+		//public  int  Score  { get; private set; }
 		public bool  IsDead { get; private set; }
+
+		public int Score => score.Score;
 
 		public Vector2 HeadPosition
 		{
@@ -51,6 +54,9 @@ namespace Snake
 
 			// Set direction
 			currentDirection = GetBestDirection();
+
+			// Create scoreboard
+			score = new Scoreboard(num, color, new Point(8, 8 + num * 16));
 		}
 
 		private void SetDirection(Direction direction) => currentDirection = direction;
@@ -138,8 +144,6 @@ namespace Snake
 			bodies.AddFirst(temp);
 		}
 
-		public void AddScore(int amount) => Score += amount;
-
 		private Vector2 GetNewPosition()
 		{
 			// Position shortcuts
@@ -181,6 +185,10 @@ namespace Snake
 		}
 
 		public IEnumerable<Vector2> GetBodyPositions() => from body in bodies select body.Position;
+
+		public void ChangeScore(int amount) => score.ChangeScore(amount);
+
+		public void DrawScore(Graphics g) => score.Draw(g);
 
 		public void SpeedUp()
 		{

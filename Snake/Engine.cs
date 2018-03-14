@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Snake
@@ -205,6 +206,20 @@ namespace Snake
 			board.SetTile(board.GetRandomFreePosition(), food);
 		}
 
-		public void SpeedUpRandomPlayer() => speedUpPlayers.Add(players.ElementAt(rng.Next(players.Count)));
+		public void SpeedUpRandomPlayer()
+		{
+			// Get random player
+			var random = players.ElementAt(rng.Next(players.Count));
+
+			// Speed it up
+			speedUpPlayers.Add(random);
+
+			// Remove from list after 10 secs
+			Task.Factory.StartNew(() =>
+			{
+				System.Threading.Thread.Sleep(10000);
+				speedUpPlayers.Remove(random);
+			});
+		}
 	}
 }

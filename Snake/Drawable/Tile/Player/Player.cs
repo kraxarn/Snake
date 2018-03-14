@@ -78,11 +78,12 @@ namespace Snake
 			}
 
 			// Check if we should continue, or "consume" the tile
-			if (board.GetTile(newPos).Collide(this) == Collide.Mode.Continue)
-				board.SetTile(newPos, new Tile(newPos, board.GetRandomBackground()));
+
+			if (board[newPos].Collide(this) == Collide.Mode.Continue)
+				board[newPos] = new Tile(newPos, board.GetRandomBackground());
 
 			// Check if we should stop
-			if (board.GetTile(newPos).Collide(this) == Collide.Mode.Stop)
+			if (board[newPos].Collide(this) == Collide.Mode.Stop)
 				return;
 
 			// Else, continue as normal
@@ -97,7 +98,7 @@ namespace Snake
 			{
 				// If we should grow, create new body
 				bodies.AddFirst(new PlayerBody(newPos, color));
-				board.SetTile(newPos, HeadTile);
+				board[newPos] = HeadTile;
 				growLength--;
 			}
 

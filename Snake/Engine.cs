@@ -59,13 +59,13 @@ namespace Snake
 				// Add player
 				var player = new Player(i + 1, board.GetRandomFreePosition(), playerColors[i]);
 				players.Add(player);
-				board.SetTile(player.HeadPosition, player.HeadTile);
+				board[player.HeadPosition] = player.HeadTile;
 			}
 
 			// Place 3-6 random walls
 			var walls = rng.Next(3, 6);
 			for (var i = 0; i < walls; i++)
-				board.SetTile(board.GetRandomFreePosition(), new Wall());
+				board[board.GetRandomFreePosition()] =  new Wall();
 
 			// Center pause text
 			textPaused.CenterLabel();
@@ -203,7 +203,7 @@ namespace Snake
 			}
 
 			// Add food to board
-			board.SetTile(board.GetRandomFreePosition(), food);
+			board[board.GetRandomFreePosition()] = food;
 		}
 
 		public void SpeedUpRandomPlayer()

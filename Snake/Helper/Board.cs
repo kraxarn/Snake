@@ -10,6 +10,13 @@ namespace Snake
 		private readonly Random  rng;
 		private readonly int     tileSize;
 
+		public Tile this[Vector2 index]
+		{
+			get => tiles[index.X, index.Y];
+			set => tiles[index.X, index.Y] = value;
+		}
+
+
 		public Board(Vector2 size, int tileSize = 32)
 		{
 			tiles = new Tile[size.X, size.Y];
@@ -30,10 +37,6 @@ namespace Snake
 				for (var y = 0; y < tiles.GetLength(1); y++)
 					tiles[x, y] = new Tile(new Vector2(x * tileSize, y * tileSize), GetRandomBackground());
 		}
-
-		public void SetTile(Vector2 pos, Tile tile) => tiles[pos.X, pos.Y] = tile;
-
-		public Tile GetTile(Vector2 pos) => tiles[pos.X, pos.Y];
 
 		public void SetTileColor(Vector2 pos, Color color) => tiles[pos.X, pos.Y].FillColor = color;
 

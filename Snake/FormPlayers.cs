@@ -25,5 +25,21 @@ namespace Snake
 		}
 
 		public int GetNumPlayers() => players;
+
+		private void BtnColors_Click(object sender, EventArgs e)
+		{
+			if (Height == 238)
+			{
+				// Show colors
+				Height = 354;
+				BtnColors.Text = @"▼ Colors";
+			}
+			else if (Height == 354)
+			{
+				// Hide colors
+				Height = 238;
+				BtnColors.Text = @"► Colors";
+			}
+		}
 	}
 }

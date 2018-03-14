@@ -86,7 +86,6 @@ namespace Snake
 				return;
 
 			// Else, continue as normal
-
 			if (growLength <= 0)
 			{
 				// If we shouldn't grow, swap tail to head

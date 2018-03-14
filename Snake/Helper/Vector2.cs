@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace Snake
 {
@@ -31,5 +32,7 @@ namespace Snake
 			var pos = (Vector2) obj;
 			return pos.X == X && pos.Y == Y;
 		}
+
+		public override int GetHashCode() => Math.Abs(X * Y).GetHashCode();
 	}
 }

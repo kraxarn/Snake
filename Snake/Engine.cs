@@ -15,6 +15,7 @@ namespace Snake
 		private readonly ISet<Player>     players;
 		private readonly Random           rng;
 		private readonly Text             textPaused;
+		private readonly ISet<Player>     speedUpPlayers;
 
 		private bool skipFrame, paused;
 
@@ -67,6 +68,9 @@ namespace Snake
 
 			// Center pause text
 			textPaused.CenterLabel();
+
+			// Create set with sped up players
+			speedUpPlayers = new HashSet<Player>();
 		}
 
 		public void Run()
@@ -103,6 +107,11 @@ namespace Snake
 			// See if we should skip the current frame
 			if (skipFrame)
 			{
+				// Update sped up players before we return
+				foreach (var player in speedUpPlayers)
+					player.Update(form.AllKeys, board);
+				
+				// Set to not skip next frame and return
 				skipFrame = false;
 				return;
 			}
@@ -172,7 +181,7 @@ namespace Snake
 		private void AddRandomFood()
 		{
 			// Get random food
-			var num = rng.Next(2);
+			var num = rng.Next(3);
 			Food food;
 			switch (num)
 			{
@@ -182,6 +191,9 @@ namespace Snake
 				case 1:
 					food = new FoodExtra();
 					break;
+				case 2:
+					food = new FoodSpeed(this);
+					break;
 				default:
 					throw new InvalidOperationException("Invalid number for food");
 			}
@@ -190,6 +202,6 @@ namespace Snake
 			board.SetTile(board.GetRandomFreePosition(), food);
 		}
 
-		public void SpeedUpRandomPlayer() => players.ElementAt(rng.Next(players.Count)).SpeedUp();
+		public void SpeedUpRandomPlayer() => speedUpPlayers.Add(players.ElementAt(rng.Next(players.Count)));
 	}
 }

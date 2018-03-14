@@ -77,10 +77,16 @@ namespace Snake
 				return;
 			}
 
-			// Check if next tile has collison
-			if (board.GetTile(newPos).Collide(this) != Collide.Mode.None)
+			// Check if we should continue, or "consume" the tile
+			if (board.GetTile(newPos).Collide(this) == Collide.Mode.Continue)
 				board.SetTile(newPos, new Tile(newPos, board.GetRandomBackground()));
-			
+
+			// Check if we should stop
+			if (board.GetTile(newPos).Collide(this) == Collide.Mode.Stop)
+				return;
+
+			// Else, continue as normal
+
 			if (growLength <= 0)
 			{
 				// If we shouldn't grow, swap tail to head

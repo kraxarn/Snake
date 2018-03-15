@@ -207,8 +207,15 @@ namespace Snake
 
 		public void SpeedUpRandomPlayer()
 		{
+			// Create new list of players who aren't sped up
+			var nonSpeedUp = players.Except(speedUpPlayers).ToList();
+
+			// See if we have any players we can speed up
+			if (nonSpeedUp.Count == 0)
+				return;
+
 			// Get random player
-			var random = players.ElementAt(rng.Next(players.Count));
+			var random = nonSpeedUp.ElementAt(rng.Next(nonSpeedUp.Count));
 
 			// Speed it up
 			speedUpPlayers.Add(random);

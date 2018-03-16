@@ -23,9 +23,6 @@ namespace Snake
 			// To avoid flickering
 			SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
 
-			// Set background color
-			BackColor = Color.FromArgb(76, 175, 80);
-
 			// Set icon
 			var res = new ComponentResourceManager(typeof(FormMain));
 			Icon = (Icon)res.GetObject("$this.Icon");

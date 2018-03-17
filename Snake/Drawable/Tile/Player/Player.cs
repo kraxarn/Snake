@@ -13,7 +13,7 @@ namespace Snake
 		
 		private readonly LinkedList<PlayerBody> bodies;
 
-		private readonly Keybinding keybinding;
+		private readonly KeyBinding keyBinding;
 		private readonly Color      color;
 		private readonly Scoreboard score;
 
@@ -39,7 +39,7 @@ namespace Snake
 
 		public Player(int num, Vector2 position, Color color)
 		{
-			keybinding = new Keybinding(num);
+			keyBinding = new KeyBinding(num);
 			IsDead = false;
 			this.color = color;
 
@@ -69,9 +69,9 @@ namespace Snake
 			// Update current direction
 			foreach (var key in keys)
 			{
-				var pressed = keybinding.GetPressedDirection(key);
-				if (pressed != Keybinding.Input.None)
-					SetDirection(Keybinding.ToDirection(pressed));
+				var pressed = keyBinding.GetPressedDirection(key);
+				if (pressed != KeyBinding.Input.None)
+					SetDirection(KeyBinding.ToDirection(pressed));
 			}
 
 			// Get new position

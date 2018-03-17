@@ -3,13 +3,13 @@ using System.Windows.Forms;
 
 namespace Snake
 {
-	public class Keybinding
+	public class KeyBinding
 	{
 		public enum Input { None, Up, Right, Down, Left }
 
 		private readonly Keys up, right, down, left;
 
-		public Keybinding(int player)
+		public KeyBinding(int player)
 		{
 			switch (player)
 			{

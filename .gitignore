@@ -260,10 +260,5 @@ paket-files/
 __pycache__/
 *.pyc
 
-# Ignore XMind projects and design files
-*.xmind
-*.png
-*.svg
-
 # Ignore Windows cache files
 *.db

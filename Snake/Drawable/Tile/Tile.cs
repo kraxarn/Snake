@@ -39,7 +39,5 @@ namespace Snake
 		public virtual Collide.Mode Collide(Player player) => Snake.Collide.Mode.None;
 
 		protected void SetColor(Color color) => drawer.Color = color;
-
-		protected void SetPosition(Vector2 newPosition) => shape.Location = newPosition.ToPoint();
 	}
 }

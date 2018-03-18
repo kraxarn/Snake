@@ -1,4 +1,14 @@
-﻿namespace Snake
+﻿
+/*
+ * Collide
+ *
+ * Enum to mainly be used
+ * with the ICollidable interface
+ * to tell how the collision
+ * should be handled.
+ */
+
+namespace Snake
 {
 	public static class Collide
 	{

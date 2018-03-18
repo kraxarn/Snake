@@ -1,5 +1,13 @@
 ﻿using System.Drawing;
 
+/*
+ * Scoreboard
+ *
+ * Simple class to keep track of the
+ * score (for a player) and to draw
+ * it on the screen.
+ */
+
 namespace Snake
 {
 	public class Scoreboard : IDrawable

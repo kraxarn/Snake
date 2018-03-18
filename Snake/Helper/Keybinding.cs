@@ -1,6 +1,17 @@
 ﻿using System;
 using System.Windows.Forms;
 
+/*
+ * KeyBinding
+ *
+ * Class to easier keep track
+ * of the various keys for
+ * the players. This is to avoid
+ * needing to define the keys used
+ * for all players in the Player
+ * class itself.
+ */
+
 namespace Snake
 {
 	public class KeyBinding

@@ -1,5 +1,14 @@
 ﻿using System.Drawing;
 
+/*
+ * PlayerBody
+ *
+ * A type of tile that's
+ * the snake itself. This
+ * is the tile being drawn to
+ * the screen as the player.
+ */
+
 namespace Snake
 {
 	public class PlayerBody : Tile

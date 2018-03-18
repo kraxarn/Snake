@@ -1,5 +1,13 @@
 ﻿using System.Drawing;
 
+/*
+ * Wall
+ *
+ * A type of tile which should
+ * kill a snake who collides
+ * with it.
+ */
+
 namespace Snake
 {
 	public class Wall : Tile

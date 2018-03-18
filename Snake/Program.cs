@@ -3,9 +3,8 @@
 /*
  * Program
  *
- * Default class to act
- * as the main entry point for
- * the application.
+ * Default class where
+ * the Program starts.
  */
 
 namespace Snake

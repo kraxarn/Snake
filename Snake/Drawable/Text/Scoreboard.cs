@@ -23,11 +23,5 @@ namespace Snake
 			Score += amount;
 			text.Label = text.Label.Substring(0, text.Label.IndexOf(' ')) + $" {Score}";
 		}
-
-		public void SetScore(int amount)
-		{
-			Score = amount;
-			text.Label = text.Label.Substring(0, text.Label.IndexOf(' ')) + $" {Score}";
-		}
 	}
 }

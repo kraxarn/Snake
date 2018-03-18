@@ -29,29 +29,28 @@ namespace Snake
 		private readonly Scoreboard score;
 
 		private int  growLength;
-		public bool  IsDead { get; private set; }
-
-		public int Score => score.Score;
+		public  bool IsDead { get; private set; }
+		public  int  Score => score.Score;
 
 		public Vector2 HeadPosition
 		{
-			get => bodies.First.Value.Position;
+			get         => bodies.First.Value.Position;
 			private set => bodies.First.Value.Position = value;
-		}
-
-		public int GrowLength
-		{
-			set => growLength = value;
 		}
 
 		public Vector2 TailPosition => bodies.Last.Value.Position;
 
 		public Tile HeadTile => bodies.First.Value;
 
+		public int GrowLength
+		{
+			set => growLength = value;
+		}
+
 		public Player(int num, Vector2 position, Color color)
 		{
 			keyBinding = new KeyBinding(num);
-			IsDead = false;
+			IsDead     = false;
 			this.color = color;
 
 			// We start as 3 blocks
@@ -68,8 +67,6 @@ namespace Snake
 			// Create scoreboard
 			score = new Scoreboard(num, color, new Point(8, 8 + (num - 1) * 16));
 		}
-
-		private void SetDirection(Direction direction) => currentDirection = direction;
 
 		public void Update(IEnumerable<Keys> keys, Board board, Engine engine)
 		{
@@ -133,6 +130,8 @@ namespace Snake
 			// Update to new position
 			HeadPosition = newPos;
 		}
+
+		private void SetDirection(Direction direction) => currentDirection = direction;
 
 		public void Die()
 		{

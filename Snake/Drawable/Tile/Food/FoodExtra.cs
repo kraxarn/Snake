@@ -2,7 +2,7 @@
 /*
  * FoodExtra
  * A type of food that
- * grows the snake with
+ * grows the snake by
  * 2 tiles and awards them
  * with 5 points.
  */

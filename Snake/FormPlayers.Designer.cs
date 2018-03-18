@@ -244,7 +244,7 @@
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Snek";
+			this.Text = null;
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

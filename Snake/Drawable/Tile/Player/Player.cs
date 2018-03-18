@@ -4,6 +4,17 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
+/*
+ * Player
+ *
+ * The main snake class that
+ * keeps track of where the
+ * various player tiles are,
+ * the score etc. It also handles
+ * the player's movement and
+ * collision with other tiles.
+ */
+
 namespace Snake
 {
 	public class Player

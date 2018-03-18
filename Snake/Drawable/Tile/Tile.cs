@@ -1,5 +1,13 @@
 ﻿using System.Drawing;
 
+/*
+ * Tile
+ *
+ * Basic tile class which fills the
+ * board. It can also be drawn and
+ * collide with other tiles.
+ */
+
 namespace Snake
 {
 	public class Tile : IDrawable, ICollidable

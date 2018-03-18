@@ -16,8 +16,7 @@ namespace Snake
 {
 	public class KeyBinding
 	{
-		public enum Input { None, Up, Right, Down, Left }
-
+		public  enum     Input { None, Up, Right, Down, Left }
 		private readonly Keys up, right, down, left;
 
 		public KeyBinding(int player)

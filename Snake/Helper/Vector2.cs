@@ -22,12 +22,6 @@ namespace Snake
 			Y = y;
 		}
 
-		public void Set(int x, int y)
-		{
-			X = x;
-			Y = y;
-		}
-
 		public Point ToPoint() => new Point(X, Y);
 
 		public override string ToString()
@@ -42,7 +36,7 @@ namespace Snake
 			var pos = (Vector2) obj;
 			return pos.X == X && pos.Y == Y;
 		}
-
+		
 		public override int GetHashCode() => Math.Abs(X * Y).GetHashCode();
 	}
 }

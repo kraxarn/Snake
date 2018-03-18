@@ -1,6 +1,16 @@
 ﻿using System;
 using System.Drawing;
 
+/*
+ * Vector2
+ *
+ * Class to keep track
+ * of 2 ints mainly used
+ * for positioning. This is
+ * mostly a fancy way to keep
+ * 2 ints in the same place.
+ */
+
 namespace Snake
 {
 	public class Vector2

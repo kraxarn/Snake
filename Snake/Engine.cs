@@ -151,7 +151,7 @@ namespace Snake
 				paused = true;
 
 				// Variables
-				var highestScore  = 0;
+				var highestScore  = int.MinValue;
 				var highestPlayer = 0;
 				var index         = 0;
 

@@ -15,13 +15,10 @@ namespace Snake
 		// The actual text being drawn to the scren
 		private readonly Text text;
 
-		// The score
 		public int Score { get; private set; }
 
-		// Constructor to create the text
 		public Scoreboard(int player, Color color, Point position) => text = new Text($"P{player}: 0", "Consolas", 12, position, color);
 
-		// Draw the text for the scoreboard
 		public void Draw(Graphics g, int x = 0, int y = 0) => text.Draw(g, x, y);
 
 		// When we change score, we also want to update the label

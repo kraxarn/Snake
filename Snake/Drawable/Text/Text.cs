@@ -12,13 +12,11 @@ namespace Snake
 {
 	public class Text : IDrawable
 	{
-		// Font being used for the text
 		private readonly Font drawFont;
 		private readonly SolidBrush drawer;
 		// String format so we can align the text
 		private readonly StringFormat format;
-
-		// Position to draw the text
+		
 		private Point  pos;
 		public  string Label;
 
@@ -33,9 +31,7 @@ namespace Snake
 		}
 
 		public void Draw(Graphics g, int x = 0, int y = 0) => g.DrawString(Label, drawFont, drawer, pos.X, pos.Y, format);
-
-		// Sets the point where we draw it to the center of the text
-		// By default, it's set to the top left
+		
 		public void CenterLabel()
 		{
 			format.Alignment     = StringAlignment.Center;

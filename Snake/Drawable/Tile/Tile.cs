@@ -20,7 +20,6 @@ namespace Snake
 		// Easier shortcut to set the color
 		public Color FillColor
 		{
-			get => drawer.Color;
 			set => drawer.Color = value;
 		}
 

@@ -31,8 +31,8 @@ namespace Snake
 
 		public Board(Vector2 size, int tileSize = 32)
 		{
-			tiles = new Tile[size.X, size.Y];
-			rng   = new Random();
+			tiles         = new Tile[size.X, size.Y];
+			rng           = new Random();
 			this.tileSize = tileSize;
 		}
 
@@ -52,7 +52,7 @@ namespace Snake
 
 		public void SwapTiles(Vector2 pos1, Vector2 pos2)
 		{
-			var temp = tiles[pos1.X, pos1.Y];
+			var temp              = tiles[pos1.X, pos1.Y];
 			tiles[pos1.X, pos1.Y] = tiles[pos2.X, pos2.Y];
 			tiles[pos2.X, pos2.Y] = temp;
 		}

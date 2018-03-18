@@ -5,6 +5,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/*
+ * Engine
+ *
+ * The main engine that keeps
+ * track of all the players etc.
+ * It also handles updating everything
+ * when needed, including players,
+ * spawners etc.
+ */
+
 namespace Snake
 {
 	public class Engine
@@ -20,7 +30,7 @@ namespace Snake
 		private bool skipFrame, paused;
 
 		/*
-		 * Colors *
+		 * Colors
 		 *
 		 * Grass:	Green
 		 * Food:	Red

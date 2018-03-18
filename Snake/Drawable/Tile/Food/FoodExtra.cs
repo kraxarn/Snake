@@ -1,4 +1,13 @@
-﻿namespace Snake
+﻿
+/*
+ * FoodExtra
+ * A type of food that
+ * grows the snake with
+ * 2 tiles and awards them
+ * with 5 points.
+ */
+
+namespace Snake
 {
 	public class FoodExtra : Food
 	{

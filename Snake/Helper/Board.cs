@@ -2,6 +2,18 @@
 using System.Drawing;
 using System.Linq;
 
+/*
+ * Board
+ *
+ * A class to keep track
+ * of all the tiles being
+ * drawn to the screen. It
+ * also provides some methods
+ * to help manage the board, like
+ * finding specific tiles and
+ * swapping tiles.
+ */
+
 namespace Snake
 {
 	public class Board

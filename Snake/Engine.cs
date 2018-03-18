@@ -19,13 +19,13 @@ namespace Snake
 {
 	public class Engine
 	{
-		private readonly FormMain         form;
-		private readonly Timer            timer;
-		private readonly Board            board;
-		private readonly List<Player>     players;
-		private readonly Random           rng;
-		private readonly Text             textPaused;
-		private readonly ISet<Player>     speedUpPlayers;
+		private readonly FormMain     form;
+		private readonly Timer        timer;
+		private readonly Board        board;
+		private readonly List<Player> players;
+		private readonly Random       rng;
+		private readonly Text         textPaused;
+		private readonly ISet<Player> speedUpPlayers;
 
 		private bool skipFrame, paused;
 
@@ -69,7 +69,6 @@ namespace Snake
 			// Add players
 			for (var i = 0; i < numPlayers; i++)
 			{
-				// Add player
 				var player = new Player(i + 1, board.GetRandomFreePosition(), playerColors[i]);
 				players.Add(player);
 				board[player.HeadPosition] = player.HeadTile;
@@ -246,11 +245,11 @@ namespace Snake
 				// Loop through players and see if we can find it
 				foreach (var p in players)
 				{
-					if (p.GetBodyPositions().Contains(pos))
-					{
-						player = p;
-						return true;
-					}
+					if (!p.GetBodyPositions().Contains(pos))
+						continue;
+
+					player = p;
+					return true;
 				}
 			}
 

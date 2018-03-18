@@ -12,7 +12,7 @@ namespace Snake
 {
 	public class Text : IDrawable
 	{
-		private readonly Font drawFont;
+		private readonly Font       font;
 		private readonly SolidBrush drawer;
 		// String format so we can align the text
 		private readonly StringFormat format;
@@ -22,15 +22,14 @@ namespace Snake
 
 		public Text(string label, string font, int size, Point pos, Color color)
 		{
-			drawFont = new Font(font, size);
-			drawer   = new SolidBrush(color);
-			format   = new StringFormat();
-
-			Label    = label;
-			this.pos = pos;
+			this.font = new Font(font, size);
+			drawer    = new SolidBrush(color);
+			format    = new StringFormat();
+			Label     = label;
+			this.pos  = pos;
 		}
 
-		public void Draw(Graphics g, int x = 0, int y = 0) => g.DrawString(Label, drawFont, drawer, pos.X, pos.Y, format);
+		public void Draw(Graphics g, int x = 0, int y = 0) => g.DrawString(Label, font, drawer, pos.X, pos.Y, format);
 		
 		public void CenterLabel()
 		{
